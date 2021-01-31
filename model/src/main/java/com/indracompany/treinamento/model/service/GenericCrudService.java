@@ -1,6 +1,7 @@
 package com.indracompany.treinamento.model.service;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,7 @@ public abstract class GenericCrudService<T extends GenericEntity<I>, I, R extend
     }
     return null;
   }
-
+  
   public Long contar() {
     return this.repository.count();
   }
