@@ -1,16 +1,31 @@
 package com.indracompany.treinamento.model.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.indracompany.treinamento.exception.AplicacaoException;
 import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
+import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
 
 @Service
 public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long, ContaBancariaRepository>{
+	
+	@Autowired
+	private ClienteService clienteService;
+	
+	
+	public List<ContaBancaria> obterContas(String cpf) {
+		Cliente cli = clienteService.buscarClientePorCpf(cpf);
+		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
+		return contasDoCliente;
+	}
+	
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancarioDTO dto) {

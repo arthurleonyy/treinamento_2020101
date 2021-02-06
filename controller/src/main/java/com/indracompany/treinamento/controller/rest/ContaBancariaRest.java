@@ -1,5 +1,7 @@
 package com.indracompany.treinamento.controller.rest;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,9 @@ import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @RestController()
 @CrossOrigin(origins = "*")
@@ -41,10 +46,20 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@ApiOperation(value = "Realiza um transferencia bancaria", nickname = "transferencia")
 	@RequestMapping(value = "/transferencia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> transferir(final @RequestBody TransferenciaBancarioDTO dto){
+	public ResponseEntity<Void> transferir(final @ApiParam("JSON com dados necessarios para realizar uma transferencia ") @RequestBody TransferenciaBancarioDTO dto){
 		getService().transferir(dto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}	
+	
+	@RequestMapping(value = "/consultar-contas-cliente/{cpf}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<ContaBancaria>> consultarContaCliente(final @PathVariable String cpf){
+		List<ContaBancaria> contasDoCliente = getService().obterContas(cpf);
+		return new ResponseEntity<>(contasDoCliente, HttpStatus.OK);
+		
+	}
+	
+	
 	
 }
