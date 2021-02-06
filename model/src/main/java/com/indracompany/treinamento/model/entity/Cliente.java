@@ -1,25 +1,12 @@
 package com.indracompany.treinamento.model.entity;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,7 +15,6 @@ import lombok.EqualsAndHashCode;
 @Table(name = "clientes")
 @EqualsAndHashCode(callSuper = true)
 public class Cliente extends GenericEntity<Long> {
-	
 	
 	private static final long serialVersionUID = -2847865650784407318L;
 	
@@ -51,6 +37,4 @@ public class Cliente extends GenericEntity<Long> {
 	@Column(name = "observacoes")
 	private String observacoes;
 	
-	
-
 }
