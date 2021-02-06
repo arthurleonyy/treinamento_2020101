@@ -7,7 +7,7 @@ import com.indracompany.treinamento.model.entity.Cliente;
 public interface ClienteRepository extends GenericCrudRepository<Cliente, Long> {
 
 	Cliente findByCpf(String cpf);
-	List<Cliente> findByNomeIsContaining(String nome);
+	List<Cliente> findByNomeIgnoreCaseIsContaining(String nome);
 	
 	Cliente findByNome(String nome);
 

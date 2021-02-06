@@ -25,15 +25,15 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 	}
 	
 	public List<Cliente> buscarClienteComNome(String nome) {
-		if (nome == null || nome.equals("")){
+		if (nome == null || nome.isBlank()){
 			throw new AplicacaoException("O nome não foi informado.");
 		}
-		return clienteRepository.findByNomeIsContaining(nome);
+		return clienteRepository.findByNomeIgnoreCaseIsContaining(nome);
 	}
 	
 	public Cliente buscarClientePorNome(String nome) {
-		if (nome == null || nome.equals("")){
-			throw new AplicacaoException("O nome não foi informado.");
+		if (nome == null || nome.isBlank()){
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CAMPO_OBRIGATORIO,"nome");
 		}
 		return clienteRepository.findByNome(nome);
 	}
