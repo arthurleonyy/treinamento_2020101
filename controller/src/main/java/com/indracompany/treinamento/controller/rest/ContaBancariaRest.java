@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.indracompany.treinamento.model.dto.DepositoDTO;
+import com.indracompany.treinamento.model.dto.SaqueDTO;
+import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
 
@@ -28,10 +30,22 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(saldo, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "deposito", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@RequestMapping(value = "/deposito", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Void> depositar(final @RequestBody DepositoDTO dto) {
 		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/saque", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> sacar(final @RequestBody SaqueDTO dto){
+		getService().sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/transferencia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> transferir(final @RequestBody TransferenciaBancariaDTO dto){
+		getService().transferir(dto);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}	
 
 }
