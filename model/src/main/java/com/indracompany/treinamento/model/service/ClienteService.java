@@ -28,7 +28,6 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 	
 	public Cliente buscarClientePorNome(String nome) {
 		return clienteRepository.findByNome(nome);
-	}
-	
+	}	
 
 }
