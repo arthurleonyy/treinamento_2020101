@@ -18,18 +18,19 @@ import com.indracompany.treinamento.model.service.ContaBancariaService;
 @RestController()
 @CrossOrigin(origins = "*")
 @RequestMapping("rest/conta")
-public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService> {
+public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService>{
 	
-	@RequestMapping(value = "/consultar-saldo/{agencia}{numConta}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, final @PathVariable String numConta) {
+	@RequestMapping(value = "/consultar-saldo/{agencia}/{numConta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, 
+			final @PathVariable String numConta){
 		double saldo = getService().consultarSaldo(agencia, numConta);
 		return new ResponseEntity<>(saldo, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/deposito", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> depositar(final @RequestBody DepositoDTO dto){
-		getService().contaDepositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
+	
 }

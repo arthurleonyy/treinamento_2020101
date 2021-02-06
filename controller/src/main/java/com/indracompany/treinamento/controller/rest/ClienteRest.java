@@ -22,7 +22,6 @@ import com.indracompany.treinamento.model.service.ClienteService;
 @CrossOrigin(origins = "*")
 @RequestMapping("rest/clientes")
 public class ClienteRest extends GenericCrudRest<Cliente, Long, ClienteService>{
-
 	@Autowired
 	private ClienteService clienteService; 
 	
@@ -31,15 +30,14 @@ public class ClienteRest extends GenericCrudRest<Cliente, Long, ClienteService>{
 		Cliente retorno = clienteService.buscarClientePorCpf(cpf);
 		return  new ResponseEntity<>(retorno, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/buscar-por-nome/{nome}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<Cliente> buscarClientePorNome(final @PathVariable String nome) {
-		if(nome == null || nome.isBlank()) {
-			throw new AplicacaoException(ExceptionValidacoes.ERRO_CAMPO_OBRIGATORIO);
-		}
-		
-		Cliente retorno = clienteService.buscarClientePorNome(nome);
-		return  new ResponseEntity<>(retorno, HttpStatus.OK);
-	}
 
+	@RequestMapping(value = "/buscar-por-nome/{nome}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<Cliente> buscaClientePorNome(final @PathVariable String nome){
+		if (nome == null || nome.isBlank()) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CAMPO_OBRIGATORIO,"Nome");
+		}
+
+		Cliente cli = clienteService.buscarClientePorNome(nome);
+		return new ResponseEntity<>(cli, HttpStatus.OK);
+	}
 }
