@@ -26,10 +26,10 @@ public class ContaBancaria extends GenericEntity<Long> {
 	@JoinColumn(name = "fk_cliente_id", nullable = false)
 	private Cliente cliente;
 	
-	@Column(name = "agencia", nullable = false)
+	@Column(name = "agencia", nullable = false, length = 4)
 	private String agencia;
 	
-	@Column(name = "numero", nullable = false)
+	@Column(name = "numero", nullable = false, length = 6)
 	private String numero;
 	
 	@Column(name = "saldo", nullable = false)
