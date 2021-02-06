@@ -5,17 +5,13 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TransferenciaBancariaDTO extends GenericDTO {
+public class DepositoDTO extends GenericDTO {
 
 	private static final long serialVersionUID = 1L;
 
-	private String agenciaOrigem;
+	private String agencia;
 
-	private String numeroContaOrigem;
-
-	private String agenciaDestino;
-
-	private String numeroContaDestino;
+	private String numeroConta;
 
 	private double valor;
 }
