@@ -1,6 +1,8 @@
 package com.indracompany.treinamento.controller.rest;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,5 +31,10 @@ public class ClienteRest extends GenericCrudRest<Cliente, Long, ClienteService>{
 		Cliente retorno = clienteService.buscarClientePorCpf(cpf);
 		return  new ResponseEntity<>(retorno, HttpStatus.OK);
 	}
+	@RequestMapping(value = "/buscar-por-nome/{nome}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<Cliente>> buscarClientePorNome(final @PathVariable String nome) {
+		List<Cliente> retorno = clienteService.buscarClientePorNome(nome);
+		return  new ResponseEntity<>(retorno, HttpStatus.OK);
 
+}
 }
