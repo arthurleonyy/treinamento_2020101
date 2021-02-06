@@ -3,12 +3,11 @@ package com.indracompany.treinamento.model.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import lombok.Data;
 import javax.persistence.Table;
-import javax.persistence.GenerationType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,23 +15,26 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @Table(name = "contas")
-@EqualsAndHashCode(callSuper =  true)
+@EqualsAndHashCode(callSuper = true)
 public class ContaBancaria extends GenericEntity<Long> {
+	
+	private static final long serialVersionUID = -5824703733929187165L;
+
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long  id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_cliente_id",nullable = false)
+	@JoinColumn(name = "fk_cliente_id", nullable = false)
 	private Cliente cliente;
 	
-	@Column(name="agencia", nullable = false)
+	@Column(name = "agencia", nullable = false, length = 4)
 	private String agencia;
 	
-	@Column(name="numero", nullable = false)
+	@Column(name = "numero", nullable = false, length = 6)
 	private String numero;
 	
-	@Column(name="saldo", nullable = false)
+	@Column(name = "saldo", nullable = false)
 	private double saldo;
-	
+
 }

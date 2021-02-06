@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class TransferenciaBancariaDTO extends GenericDTO {
 	
-	
+	private static final long serialVersionUID = -4146773220700171235L;
 	
 	private String agenciaOrigem;
 	private String numeroContaOrigem;
