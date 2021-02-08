@@ -12,9 +12,13 @@ import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
+import com.indracompany.treinamento.util.TiposTransacao;
 
 @Service
 public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long, ContaBancariaRepository>{
+	
+	@Autowired
+	private RegistroTransacoesService registroTransacoesService;
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -29,16 +33,33 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
-		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
+		ContaBancaria contaOrigem = consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
+		
+		if (contaOrigem.getSaldo() < dto.getValor()) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
+		}
+		contaOrigem.setSaldo(contaOrigem.getSaldo() - dto.getValor());
+		
+		ContaBancaria contaDestino = consultaConta(dto.getAgenciaDestino(),dto.getNumeroContaDestino());
+		
+		contaDestino.setSaldo(contaDestino.getSaldo() + dto.getValor());
+		
+		super.salvar(contaOrigem);
+		super.salvar(contaDestino);
+		
+		registroTransacoesService.registraTransacao(contaOrigem, dto.getValor(), TiposTransacao.TRANSFERENCIA_ENVIADA,"Transferencia enviada");
+		registroTransacoesService.registraTransacao(contaDestino, dto.getValor(), TiposTransacao.TRANSFERENCIA_RECEBIDA,"Transferencia recebida");
 	}
 	
+	@Transactional(rollbackFor = Exception.class)
 	public void depositar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
+		registroTransacoesService.registraTransacao(conta, valor, TiposTransacao.DEPOSITO);
 	}
 	
+	@Transactional(rollbackFor = Exception.class)
 	public void sacar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		if (conta.getSaldo() < valor) {
@@ -46,6 +67,8 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
+		
+		registroTransacoesService.registraTransacao(conta, valor, TiposTransacao.SAQUE);
 	}
 	
 	public double consultarSaldo(String agencia, String numeroConta) {
@@ -55,9 +78,6 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	public ContaBancaria consultaConta(String agencia, String numeroConta) {
 		ContaBancaria conta = repository.findByAgenciaAndNumero(agencia, numeroConta);
-		if (conta == null) {
-			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_INVALIDA);
-		}
 		return conta;
 	}
 }

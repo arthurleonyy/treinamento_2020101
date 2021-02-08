@@ -1,19 +1,5 @@
 package com.indracompany.treinamento.model.dto;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-@Data
-@EqualsAndHashCode(callSuper=false)
-public class DepositoDTO extends GenericDTO{
-
-	private static final long serialVersionUID = 4320607655918916745L;
-	
-	private String agencia;
-	private String numeroConta;
-	private double valor;
-	
-	
-	
+public class DepositoDTO extends TransacaoDTO {
 
 }
