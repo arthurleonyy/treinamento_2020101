@@ -39,7 +39,7 @@ public class TransacaoExtrato extends GenericEntity<Long> {
 	private double valor;
 
 	@Column(name = "data_transacao", nullable = false)
-	private String transacao;
+	private String dataTransacao;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_conta_cliente_id", nullable = false)

@@ -27,7 +27,7 @@ public class TransacaoExtratoService extends GenericCrudService<TransacaoExtrato
 		te.setNumero(contaBancaria.getNumero());
 		te.setAgencia(contaBancaria.getAgencia());
 		te.setTipo(transacao);
-		te.setTransacao(formatter.format(ZonedDateTime.now()));
+		te.setDataTransacao(formatter.format(ZonedDateTime.now()));
 		te.setValor(valor);
 		this.salvar(te);
 	}
