@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiParam;
 public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService> {
 
 	@Autowired
-	private TransacaoExtratoService tee;
+	private TransacaoExtratoService extratoService;
 
 	@RequestMapping(value = "/consultar-saldo/{agencia}/{numConta}", method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
@@ -70,8 +70,7 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 
 	@RequestMapping(value = "/extrato", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody ResponseEntity<List<TransacaoExtrato>> extratoContaCliente() {
-		final List<TransacaoExtrato> transExtrato = tee.extratoContaCliente();
-		return new ResponseEntity<List<TransacaoExtrato>>(transExtrato, HttpStatus.OK);
+		return new ResponseEntity<List<TransacaoExtrato>>(extratoService.extratoContaCliente(), HttpStatus.OK);
 	}
 
 }

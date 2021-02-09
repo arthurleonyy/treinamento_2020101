@@ -1,11 +1,7 @@
 package com.indracompany.treinamento.model.entity;
 
-import java.time.Instant;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.indracompany.treinamento.model.entity.enums.TransacaoExtratoEnum;
+import com.indracompany.treinamento.model.entity.enums.TransacaoEnum;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,15 +26,22 @@ public class TransacaoExtrato extends GenericEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private TransacaoExtratoEnum Transacao;
+	@Column(name = "transacao_extrato", nullable = false)
+	private TransacaoEnum tipo;
 
+	@Column(name = "numero_conta", nullable = false)
+	private String numero;
+
+	@Column(name = "numero_agencia", nullable = false)
+	private String agencia;
+
+	@Column(name = "valor_transacao", nullable = false)
 	private double valor;
 
-	private Instant date;
+	@Column(name = "data_transacao", nullable = false)
+	private String transacao;
 
 	@ManyToOne
-	@JoinColumn(name = "fk_conta_id", nullable = false)
-	private ContaBancaria contaId;
+	@JoinColumn(name = "fk_conta_cliente_id", nullable = false)
+	private Cliente conta;
 }

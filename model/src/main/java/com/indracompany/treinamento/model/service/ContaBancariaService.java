@@ -11,7 +11,7 @@ import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
-import com.indracompany.treinamento.model.entity.enums.TransacaoExtratoEnum;
+import com.indracompany.treinamento.model.entity.enums.TransacaoEnum;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
 
 @Service
@@ -31,7 +31,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
-		TransacaoExtratoEnum trasacao = TransacaoExtratoEnum.TRANSFERENCIA;
+		TransacaoEnum trasacao = TransacaoEnum.Transferencia;
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
 		ContaBancaria contaDestino = this.consultaConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
@@ -40,7 +40,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	public void depositar(String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
-		TransacaoExtratoEnum trasacao = TransacaoExtratoEnum.DEPOSITO;
+		TransacaoEnum trasacao = TransacaoEnum.Deposito;
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
 		tes.geraExtrato(conta, valor, trasacao);
@@ -48,13 +48,13 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	public void sacar(String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
-		TransacaoExtratoEnum trasacao = TransacaoExtratoEnum.SAQUE;
+		TransacaoEnum trasacao = TransacaoEnum.Saque;
 		if (conta.getSaldo() < valor) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
-		tes.geraExtrato(conta, (-valor), trasacao);
+		tes.geraExtrato(conta, (- valor ), trasacao);
 	}
 
 	public double consultarSaldo(String agencia, String numeroConta) {
