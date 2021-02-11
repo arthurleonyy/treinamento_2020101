@@ -25,6 +25,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
 		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
+		extratoBancario.atualizarExtrato("Realizou uma busca por contas cadastradas no cpf", 0,null, null, cli, null);
 		return contasDoCliente;
 	}
 	
@@ -32,15 +33,17 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
-		//extratoBancario.atualizarExtrato("Fez uma transferencia para a conta referente a agencia " + dto.getAgenciaDestino() + "", dto.getValor(), , null);
+		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());		
+		extratoBancario.atualizarExtrato("Realizou uma transferencia", dto.getValor(), 
+									     consultarConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem()),
+									     consultarConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino()), null, null);
 	}
 	
 	
 	public void depositar(String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);		
 		conta.setSaldo(conta.getSaldo() + valor);
-		extratoBancario.atualizarExtrato("Fez um deposito", valor, conta, null);		
+		extratoBancario.atualizarExtrato("Realizou um deposito", valor, conta, null, null, null);		
 		super.salvar(conta);
 		
 		
@@ -52,13 +55,13 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
-		extratoBancario.atualizarExtrato("Fez um saque", valor, conta, null);
+		extratoBancario.atualizarExtrato("Realizou um saque", valor, conta,  null, null, null);
 		super.salvar(conta);
 	}
 	
 	public double consultarSaldo(String agencia, String numeroConta) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
-		extratoBancario.atualizarExtrato("consultou saldo", conta.getSaldo(), conta, null);
+		extratoBancario.atualizarExtrato("Realizou uma consulta do saldo", conta.getSaldo(), conta,  null, null, null);
 		return conta.getSaldo();
 	}
 	

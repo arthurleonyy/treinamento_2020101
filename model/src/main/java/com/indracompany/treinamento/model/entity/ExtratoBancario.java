@@ -18,6 +18,21 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ExtratoBancario extends GenericEntity<Long>{
 	
+	
+	public ExtratoBancario() {
+		
+	}
+	
+	public ExtratoBancario(String relatorio, double valor, ContaBancaria contaOrigem, ContaBancaria contaDestino, Cliente cliente, String data) {
+		this.setCliente(cliente);
+		this.setContaBancariaDestino(contaDestino);
+		this.setContaBancariaOrigem(contaOrigem);
+		this.setData(data);
+		this.setRelatorio(relatorio);
+		this.setValor(valor);
+	}
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,7 +47,15 @@ public class ExtratoBancario extends GenericEntity<Long>{
 	private double valor;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_bank_account_origin_id", nullable = false)
+	@JoinColumn(name = "fk_bank_account_origin_id")
 	private ContaBancaria contaBancariaOrigem;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_bank_account_dest_id")
+	private ContaBancaria contaBancariaDestino;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_client_id")
+	private Cliente cliente;
 	
 }
