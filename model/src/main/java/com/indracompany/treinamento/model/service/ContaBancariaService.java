@@ -1,6 +1,9 @@
 package com.indracompany.treinamento.model.service;
 
 import java.util.List;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +14,6 @@ import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
-import com.indracompany.treinamento.model.entity.ExtratoBancario;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
 
 @Service
@@ -23,7 +25,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	private ExtratoBancarioService extratoBancarioService;
 	
 	private boolean transferencia = false;
-
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+	LocalDateTime now;
+	
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
 		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
@@ -36,10 +40,12 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	public void transferir(TransferenciaBancariaDTO dto) {
 		transferencia = true;
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());		
+		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
+		now = LocalDateTime.now();
+		
 		extratoBancarioService.atualizarExtrato("Realizou uma transferencia", dto.getValor(), 
 									     consultarConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem()),
-									     consultarConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino()), null, null);
+									     consultarConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino()), null, dtf.format(now));
 		transferencia = false;
 	}
 	
@@ -48,7 +54,8 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);		
 		conta.setSaldo(conta.getSaldo() + valor);
 		if(!transferencia) {
-			extratoBancarioService.atualizarExtrato("Realizou um deposito", valor, conta, null, null, null);
+			now = LocalDateTime.now();
+			extratoBancarioService.atualizarExtrato("Realizou um deposito", valor, conta, null, null, dtf.format(now));
 		}
 		super.salvar(conta);
 		
@@ -62,14 +69,16 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		if(!transferencia) {
-			extratoBancarioService.atualizarExtrato("Realizou um saque", valor, conta,  null, null, null);
+			now = LocalDateTime.now();
+			extratoBancarioService.atualizarExtrato("Realizou um saque", valor, conta,  null, null, dtf.format(now));
 		}
 		super.salvar(conta);
 	}
 	
 	public double consultarSaldo(String agencia, String numeroConta) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
-		extratoBancarioService.atualizarExtrato("Realizou uma consulta do saldo", conta.getSaldo(), conta,  null, null, null);
+		now = LocalDateTime.now();
+		extratoBancarioService.atualizarExtrato("Realizou uma consulta do saldo", conta.getSaldo(), conta,  null, null, dtf.format(now));
 		return conta.getSaldo();
 	}
 	
@@ -81,7 +90,5 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		return conta;
 	}
-	
-	
-		
+			
 }
