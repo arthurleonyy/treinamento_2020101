@@ -33,4 +33,14 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	
+	@RequestMapping(value = "/consultar-extrato-bancario/{agencia}/{numConta}/", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<ContaBancaria> consultarExtratoBancario(
+			final @PathVariable String agencia, final @PathVariable String numConta){
+		ContaBancaria contaBancaria = getService().consultaConta(agencia, numConta);
+		return new ResponseEntity<>(contaBancaria, HttpStatus.OK);
+	}
+	
+	
+	
 }
