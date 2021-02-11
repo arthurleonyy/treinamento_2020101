@@ -10,11 +10,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
 @Table(name = "extrato_bancario")
-public class ExtratoBancario {
+@EqualsAndHashCode(callSuper = true)
+public class ExtratoBancario extends GenericEntity<Long>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,23 +25,14 @@ public class ExtratoBancario {
 	@Column(name = "data")
 	private String data;
 	
-	@Column(name = "tipo", nullable = false)
-	private String tipoMovimento;
+	@Column(name = "relatorio", nullable = false)
+	private String relatorio;
 	
 	@Column(name = "valor")
-	private String valor;
+	private double valor;
 	
 	@ManyToOne
 	@JoinColumn(name = "fk_bank_account_origin_id", nullable = false)
 	private ContaBancaria contaBancariaOrigem;
 	
-	@ManyToOne
-	@JoinColumn(name = "fk_bank_account_destination_id")
-	private ContaBancaria contaBancariaDestino;
-	
-	@ManyToOne
-	@JoinColumn(name = "fk_client_id")
-	private Cliente cliente;
-	
-
 }

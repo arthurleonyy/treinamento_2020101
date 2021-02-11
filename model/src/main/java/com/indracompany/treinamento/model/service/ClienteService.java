@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.indracompany.treinamento.exception.AplicacaoException;
 import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.entity.Cliente;
+import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.repository.ClienteRepository;
 import com.indracompany.treinamento.util.CpfUtil;
 
