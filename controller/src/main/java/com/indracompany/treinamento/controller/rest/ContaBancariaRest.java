@@ -17,7 +17,6 @@ import com.indracompany.treinamento.model.dto.DepositoDTO;
 import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
-import com.indracompany.treinamento.model.entity.ExtratoBancario;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
 
 import io.swagger.annotations.ApiOperation;
@@ -60,12 +59,6 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		List<ContaBancaria> contasDoCliente = getService().obterContas(cpf);
 		return  new ResponseEntity<>(contasDoCliente, HttpStatus.OK);
 	}
-	
-	/*@RequestMapping(value = "/consultar-extrato-bancario/{agencia}/{numConta}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<List<ExtratoBancario>> consultarExtratoBancario(final @PathVariable String agencia, 
-			final @PathVariable String numConta) {
-		List<ExtratoBancario> extratoBancario = getService(). ;
-		return  new ResponseEntity<>(extratoBancario, HttpStatus.OK);
-	}*/
+		
 
 }
