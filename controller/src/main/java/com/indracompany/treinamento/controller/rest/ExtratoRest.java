@@ -22,9 +22,9 @@ public class ExtratoRest extends GenericCrudRest<Extrato, Long, ExtratoService>{
 
 	
 	@RequestMapping(value = "/consultar-extrato/{mes}/{ano}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<List<Extrato>> consultarExtrato(final @PathVariable String mes, 
+	public @ResponseBody ResponseEntity<List<Object>> consultarExtrato(final @PathVariable String mes, 
 			final @PathVariable String ano){
-		List<Extrato> extratoMesAno = getService().extratoMesAno(mes, ano);
+		List<Object> extratoMesAno = getService().extratoMesAno(mes, ano);
 		return new ResponseEntity<>(extratoMesAno, HttpStatus.OK);
 		
 	}

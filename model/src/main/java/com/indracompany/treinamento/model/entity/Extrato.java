@@ -28,8 +28,9 @@ public class Extrato extends GenericEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "dadosBancario", nullable = false, length = 429496729)
-	private GenericDTO dadosBancario;
+	@ManyToOne
+	@JoinColumn(name = "fk_conta_id", nullable = false)
+	private ContaBancaria contaBancaria;
 
 	@Column(name = "dataTransacao", nullable = false)
 	private LocalDate data;

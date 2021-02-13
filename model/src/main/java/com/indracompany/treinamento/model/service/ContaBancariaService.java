@@ -36,39 +36,31 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancarioDTO dto) {
-		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(),true, dto);
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(),true, dto);
+		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(),true);
+		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(),true);
 	}
 	
-	public void depositar (String agencia, String numeroConta, double valor, boolean transferencia, GenericDTO dtoTransferencia) {
+	public void depositar (String agencia, String numeroConta, double valor, boolean transferencia) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		if(transferencia) {
-			extratoService.formatarExtrato(dtoTransferencia, conta.getSaldo(), TipoTransacaoEnum.TRANSFERENCIA,valor,"+");
+			extratoService.formatarExtrato(conta, conta.getSaldo(), TipoTransacaoEnum.TRANSFERENCIA,valor,"+");
 		}else {
-			DepositoDTO depositoDTO = new DepositoDTO();
-			depositoDTO.setAgencia(conta.getAgencia());
-			depositoDTO.setNumeroConta(conta.getNumero());
-			depositoDTO.setValor(valor);
-			extratoService.formatarExtrato(depositoDTO, conta.getSaldo(), TipoTransacaoEnum.DEPOSITO,valor,"+");
+			extratoService.formatarExtrato(conta, conta.getSaldo(), TipoTransacaoEnum.DEPOSITO,valor,"+");
 		}
 		super.salvar(conta);
 	}
 	
-	public void sacar (String agencia, String numeroConta, double valor, boolean transferencia, GenericDTO dtoTransferencia) {
+	public void sacar (String agencia, String numeroConta, double valor, boolean transferencia) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		if (conta.getSaldo() < valor) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		if(transferencia) {
-			extratoService.formatarExtrato(dtoTransferencia, conta.getSaldo(), TipoTransacaoEnum.TRANSFERENCIA,valor,"-");
+			extratoService.formatarExtrato(conta, conta.getSaldo(), TipoTransacaoEnum.TRANSFERENCIA,valor,"-");
 		}else {
-			SaqueDTO saqueDTO = new SaqueDTO();
-			saqueDTO.setAgencia(conta.getAgencia());
-			saqueDTO.setNumeroConta(conta.getNumero());
-			saqueDTO.setValor(valor);
-			extratoService.formatarExtrato(saqueDTO, conta.getSaldo(), TipoTransacaoEnum.SAQUE,valor,"-");
+			extratoService.formatarExtrato(conta, conta.getSaldo(), TipoTransacaoEnum.SAQUE,valor,"-");
 		}
 		super.salvar(conta);
 	}
