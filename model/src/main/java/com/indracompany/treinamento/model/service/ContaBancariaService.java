@@ -19,13 +19,15 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Autowired
 	private ClienteService clienteService;
 	
+	@Autowired
+	private ExtratoService extratoService;
+	
 	
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
 		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
 		return contasDoCliente;
 	}
-	
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancarioDTO dto) {
@@ -36,6 +38,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	public void depositar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
+		extratoService.registrar(conta, valor, "DEPOSITO");
 		super.salvar(conta);
 	}
 	
@@ -45,6 +48,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
+		extratoService.registrar(conta, valor, "SAQUE");
 		super.salvar(conta);
 	}
 	
