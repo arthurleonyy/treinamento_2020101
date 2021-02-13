@@ -24,13 +24,12 @@ public class BasicSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http
-			.httpBasic()
-			.and()
+			//.httpBasic()
+			//.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		http.
-			authorizeRequests().antMatchers("/", "/public/**","/login*","/swagger-ui.html*", "/webjars/**","/v2/**").permitAll()
-			//.authorizeRequests().antMatchers("/**").permitAll();
+			authorizeRequests().antMatchers("/", "/**","/public/**","/login*","/swagger-ui.html*", "/webjars/**","/v2/**").permitAll()
 			.and()
 			.authorizeRequests().antMatchers("/rest/**").authenticated();
 

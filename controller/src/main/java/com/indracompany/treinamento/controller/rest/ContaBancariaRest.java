@@ -17,6 +17,7 @@ import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
 
+
 import java.util.List;
 
 import io.swagger.annotations.ApiOperation;
@@ -28,8 +29,7 @@ import io.swagger.annotations.ApiParam;
 public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService>{
 
 	@RequestMapping(value = "/consultar-saldo/{agencia}/{numConta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, 
-			final @PathVariable String numConta){
+	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, final @PathVariable String numConta){
 		double saldo = getService().consultarSaldo(agencia, numConta);
 		return new ResponseEntity<>(saldo, HttpStatus.OK);
 	}
@@ -59,4 +59,6 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(contasDoCliente, HttpStatus.OK);
 
 	}
+	
+	
 }
