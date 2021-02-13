@@ -17,9 +17,9 @@ public class ExtratoService extends GenericCrudService<Extrato, Long, ExtratoRep
 	@Autowired
 	private ExtratoRepository extratoRepository;
 
-	public List<Object> extratoMesAno(String mes,String ano) {
+	public List<Object> extratoMesAno(String mes,String ano,String numConta,String numAgencia) {
 		String mesAnoFormatado = ano+"-"+mes;
-		List<Object> extratoMesAno = extratoRepository.buscarExtratoMesAno(mesAnoFormatado);
+		List<Object> extratoMesAno = extratoRepository.buscarExtratoMesAno(mesAnoFormatado,numConta,numAgencia);
 		return extratoMesAno;
 	}
 

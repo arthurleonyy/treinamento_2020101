@@ -21,10 +21,12 @@ import com.indracompany.treinamento.model.service.ExtratoService;
 public class ExtratoRest extends GenericCrudRest<Extrato, Long, ExtratoService>{
 
 	
-	@RequestMapping(value = "/consultar-extrato/{mes}/{ano}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/consultar-extrato/{mes}/{ano}/{numConta}/{numAgencia}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<List<Object>> consultarExtrato(final @PathVariable String mes, 
-			final @PathVariable String ano){
-		List<Object> extratoMesAno = getService().extratoMesAno(mes, ano);
+			final @PathVariable String ano,
+			final @PathVariable String numConta,
+			final @PathVariable String numAgencia){
+		List<Object> extratoMesAno = getService().extratoMesAno(mes, ano,numConta,numAgencia);
 		return new ResponseEntity<>(extratoMesAno, HttpStatus.OK);
 		
 	}
