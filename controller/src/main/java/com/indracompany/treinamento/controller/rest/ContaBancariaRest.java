@@ -36,13 +36,13 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	
 	@RequestMapping(value = "/deposito", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> depositar(final @RequestBody DepositoDTO dto){
-		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), false);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saque", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> sacar(final @RequestBody SaqueDTO dto){
-		getService().sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		getService().sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), false);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -52,6 +52,7 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		getService().transferir(dto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}	
+	
 	
 	@RequestMapping(value = "/consultar-contas-cliente/{cpf}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<List<ContaBancaria>> consultarContaCliente(final @PathVariable String cpf){

@@ -10,6 +10,9 @@ spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   jpa:
+    properties:      hibernate:
+        jdbc:
+          time-zone: GMT-03:00
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     format-sql: false
