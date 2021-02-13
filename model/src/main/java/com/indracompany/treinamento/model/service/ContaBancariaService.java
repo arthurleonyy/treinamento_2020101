@@ -12,6 +12,7 @@ import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
+import com.indracompany.treinamento.util.Constantes;
 
 @Service
 public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long, ContaBancariaRepository>{
@@ -19,6 +20,10 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Autowired
 	private ClienteService clienteService;
 	
+	@Autowired
+	private ExtratoBancarioService extrato;
+	
+	private Boolean transferencia = false; 
 	
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
@@ -29,15 +34,31 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancarioDTO dto) {
+		transferencia = true;
+		
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
+		
+		ContaBancaria contaBancariaPrimaria = this.consultaConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
+		ContaBancaria contaBancariaSecundaria = this.consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
+		
+		extrato.geraExtrato(contaBancariaPrimaria,  dto.getValor(), Constantes.TRANSACAO_TRANSFERENECIA);
+		extrato.geraExtrato(contaBancariaSecundaria, - dto.getValor(), Constantes.TRANSACAO_TRANSFERENECIA);
+		
+		transferencia = false;
+		
 	}
 	
 	public void depositar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
-	}
+		
+			if(!transferencia){
+				extrato.geraExtrato(conta, valor, Constantes.TRANSACAO_DEPOSITO);
+			}
+		
+		}
 	
 	public void sacar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
@@ -46,6 +67,10 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
+		
+			if(!transferencia){
+				extrato.geraExtrato(conta, -valor, Constantes.TRANSACAO_SAQUE);
+			}
 	}
 	
 	public double consultarSaldo(String agencia, String numeroConta) {

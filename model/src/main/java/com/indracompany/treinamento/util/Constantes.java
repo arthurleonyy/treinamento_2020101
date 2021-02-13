@@ -12,5 +12,8 @@ public class Constantes {
 	public static final String PARAM_SIS_PASSWORD_PROXY = "passwordProxy";
 	public static final String USER_DOMAIN_EMAIL = "@indracompany.com";
 	public static final String USUARIO_LOGADO = "usuarioLogado";
+	public static final String TRANSACAO_TRANSFERENECIA = "Transferência";
+	public static final String TRANSACAO_SAQUE = 	"Saque";
+	public static final String TRANSACAO_DEPOSITO =	"Depósito";
 	
 }

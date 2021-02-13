@@ -1,5 +1,6 @@
 package com.indracompany.treinamento.controller.rest;
 
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
+
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -59,7 +61,6 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(contasDoCliente, HttpStatus.OK);
 		
 	}
-	
 	
 	
 }
