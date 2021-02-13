@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.indracompany.treinamento.exception.AplicacaoException;
+import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.entity.Extrato;
 import com.indracompany.treinamento.model.service.ExtratoService;
 
@@ -25,6 +27,10 @@ public class ExtratoBancarioRest extends GenericCrudRest<Extrato, Long, ExtratoS
 	public @ResponseBody ResponseEntity<List<Extrato>> extrato(final @PathVariable String agencia, 
 			final @PathVariable String numConta, final @PathVariable String data){
 		List<Extrato> extrato = getService().buscarExtrato(agencia, numConta, data);
+		if(extrato.isEmpty()) {
+			throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUM_REGISTRO_ENCONTRADO);
+			
+		}
 		return new ResponseEntity<>(extrato, HttpStatus.OK);
 	}
 
