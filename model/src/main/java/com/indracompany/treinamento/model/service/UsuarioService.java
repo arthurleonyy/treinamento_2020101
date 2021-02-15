@@ -10,7 +10,7 @@ import com.indracompany.treinamento.model.repository.UsuarioRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Service
 public class UsuarioService extends GenericCrudService<Usuario, Long, UsuarioRepository> {
 

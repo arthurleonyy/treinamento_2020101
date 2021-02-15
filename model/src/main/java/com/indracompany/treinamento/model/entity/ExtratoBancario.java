@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -24,6 +26,11 @@ public class ExtratoBancario extends GenericEntity<Long>{
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2330018194241030142L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -43,6 +50,7 @@ public class ExtratoBancario extends GenericEntity<Long>{
 	private String transacao;
 	
 	@Column(name = "data", nullable = false)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date data; 
 	
 	@Column(name = "valor", nullable = false)

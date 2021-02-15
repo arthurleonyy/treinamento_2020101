@@ -3,6 +3,8 @@ package com.indracompany.treinamento.model.dto;
 import java.time.OffsetDateTime;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +16,9 @@ public class ExtratoBancarioDTO extends GenericDTO{
 	
 	private String agencia;
 	private String conta;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataInicio;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataFim;
 	
 	
