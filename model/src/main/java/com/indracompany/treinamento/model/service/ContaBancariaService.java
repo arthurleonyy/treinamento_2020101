@@ -15,9 +15,7 @@ import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
-import com.indracompany.treinamento.model.entity.Extrato;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
-import com.indracompany.treinamento.model.repository.ExtratoRepository;
 
 @Service
 public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long, ContaBancariaRepository>{

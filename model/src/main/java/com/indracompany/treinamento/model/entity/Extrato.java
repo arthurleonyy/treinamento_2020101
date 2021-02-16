@@ -1,6 +1,9 @@
 package com.indracompany.treinamento.model.entity;
 
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +20,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class Extrato extends GenericEntity<Long>{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -31,7 +39,7 @@ public class Extrato extends GenericEntity<Long>{
 	private String acao;
 	
 	@Column(name = "data")
-	private String data;
+	private Date data;
 	
 	
 
