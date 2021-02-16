@@ -5,6 +5,8 @@ import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.indracompany.treinamento.exception.AplicacaoException;
+import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.ExtratoBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.entity.ExtratoBancario;
@@ -26,8 +28,16 @@ public class ExtratoBancarioService extends GenericCrudService<ExtratoBancario, 
 	}
 
 	public List<ExtratoBancario> buscarExtratoEntreDatas(ExtratoBancarioDTO dto) {
-
-		return repository.buscarEntreDatasSQL(dto.getAgencia(), dto.getConta(), dto.getDataInicio(), dto.getDataFim());
+		
+		if( dto.getDataFim() == null || dto.getDataInicio() == null) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_DATA_INVALIDA);
+		}
+		List<ExtratoBancario> extrato = repository.buscarEntreDatasSQL(dto.getAgencia(), dto.getConta(), dto.getDataInicio(), dto.getDataFim());
+		if(extrato.isEmpty()) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_DADOS_INCORRETOS);
+		}
+		return extrato;
+		
 
 	}
 
