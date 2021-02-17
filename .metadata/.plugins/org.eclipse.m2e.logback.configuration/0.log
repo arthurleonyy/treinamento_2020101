@@ -1,0 +1,297 @@
+2021-02-16 21:53:50,533 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-02-16 21:59:37,551 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2021-02-16 21:59:56,804 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.indracompany:treinamento-model:1.0 @ C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\pom.xml.
+2021-02-16 22:00:06,893 [Worker-13: Update Maven projects configuration] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-16 22:00:16,951 [Worker-7: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.indracompany:treinamento-controller:1.0 @ C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\pom.xml.
+2021-02-16 22:00:22,341 [Worker-7: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-16 22:00:23,676 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-16 22:00:30,285 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:00:30,312 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-16 22:00:30,435 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:00:30,437 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:00:31,964 [Worker-11: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.indracompany:treinamento-controller:1.0 @ C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\pom.xml.
+2021-02-16 22:00:33,555 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /model/src/main/java
+2021-02-16 22:00:33,575 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /model/src/test/java
+2021-02-16 22:00:36,778 [Worker-11: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-16 22:00:55,345 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 77 sec
+2021-02-16 22:00:55,350 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2021-02-16 22:00:58,634 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.indracompany:treinamento-model:1.0 @ C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\pom.xml.
+2021-02-16 22:01:01,048 [Worker-13: Update Maven projects configuration] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-16 22:01:02,531 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.indracompany:treinamento-controller:1.0 @ C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\pom.xml.
+2021-02-16 22:01:03,432 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-16 22:01:10,367 [Worker-7: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-16 22:01:11,284 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:01:11,310 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-16 22:01:11,451 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:01:11,452 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:01:11,457 [Worker-7: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of controller
+2021-02-16 22:01:11,458 [Worker-7: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for controller
+2021-02-16 22:01:11,623 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 is missing, no dependency information available
+2021-02-16 22:01:11,667 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:01:17,979 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /controller/src/main/java
+2021-02-16 22:01:17,981 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /controller/src/main/resources
+2021-02-16 22:01:18,059 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /controller/src/test/java
+2021-02-16 22:01:25,480 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:01:25,484 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-16 22:01:25,505 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:01:25,506 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:02:15,427 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:15,432 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-16 22:02:15,478 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:15,480 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:02:16,703 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:16,705 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-02-16 22:02:16,712 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:16,713 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:02:19,270 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-16 22:02:20,169 [Worker-15: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-16 22:02:20,558 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:20,559 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-16 22:02:20,562 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-16 22:02:20,572 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:20,574 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-16 22:02:23,498 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /model/src/main/java
+2021-02-16 22:02:23,500 [Worker-13: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /model/src/test/java
+2021-02-16 22:02:25,495 [Worker-13: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 90 sec
+2021-02-16 22:02:51,926 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:51,928 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-02-16 22:02:51,933 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:51,934 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-16 22:02:54,020 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:54,021 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-16 22:02:54,022 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-16 22:02:54,035 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-16 22:02:54,036 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-16 22:14:36,698 [Worker-17: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:14:39,350 [Worker-17: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:14:41,724 [Worker-17: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:19:18,461 [Worker-19: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:19:20,724 [Worker-19: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:19:22,797 [Worker-19: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:28:19,940 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:28:21,897 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:28:23,901 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:06,575 [Worker-31: Launching ASTFrame] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:08,452 [Worker-31: Launching ASTFrame] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:10,388 [Worker-31: Launching ASTFrame] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:45,696 [Worker-32: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:47,643 [Worker-32: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:32:49,641 [Worker-32: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:35:02,462 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:35:04,474 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:35:06,322 [Worker-25: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:37:51,912 [Worker-36: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:37:53,838 [Worker-36: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:37:55,851 [Worker-36: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:38:36,253 [Worker-35: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:38:38,212 [Worker-35: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 22:38:40,213 [Worker-35: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 23:00:10,926 [Worker-46: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 23:00:12,987 [Worker-46: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-16 23:00:15,077 [Worker-46: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 01:20:46,545 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 10:31:43,127 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 10:32:26,246 [Worker-5: Check for devtools] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-17 10:32:48,973 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:32:48,974 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:32:48,975 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:32:48,981 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:32:48,982 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 10:33:03,140 [Worker-6: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-17 10:33:04,160 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:33:04,183 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 10:33:04,307 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:33:04,307 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 10:35:02,226 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:35:02,228 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:35:02,229 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:35:02,236 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:35:02,237 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 10:42:13,769 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:42:13,770 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:42:13,772 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:42:13,778 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:42:13,779 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 10:42:23,741 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:42:23,743 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:42:23,743 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:42:23,749 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:42:23,751 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 10:43:42,656 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:43:42,657 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:43:42,658 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:43:42,664 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:43:42,664 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 10:55:42,223 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:55:42,224 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:55:42,224 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 10:55:42,228 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:55:42,229 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:08:11,186 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:08:11,187 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:08:11,187 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:08:11,197 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:08:11,197 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:10:22,031 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:10:22,032 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:10:22,034 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:10:22,040 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:10:22,042 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:11:00,927 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 11:11:40,168 [Worker-2: Check for devtools] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-17 11:11:47,620 [Worker-5: Launching controller - AppConfig] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-17 11:11:49,479 [Worker-5: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 11:11:51,680 [Worker-5: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 11:11:53,446 [Worker-5: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 11:14:03,725 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:14:03,726 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:14:03,727 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:14:03,732 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:14:03,733 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:16:25,266 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:16:25,267 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:16:25,267 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:16:25,275 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:16:25,275 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:27:59,640 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:27:59,641 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:27:59,642 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:27:59,646 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:27:59,646 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:29:34,636 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:29:34,637 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:29:34,638 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:29:34,649 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:29:34,650 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 11:32:52,004 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:32:52,005 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:32:52,005 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 11:32:52,009 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 11:32:52,010 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 12:03:15,218 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:03:15,219 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:03:15,219 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:03:15,224 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:03:15,225 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 12:19:14,130 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:19:14,131 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:19:14,132 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:19:14,137 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:19:14,138 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 12:34:06,360 [Worker-39: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:34:07,926 [Worker-39: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:34:09,376 [Worker-39: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:34:34,984 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:34:34,998 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 12:34:35,082 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:34:35,082 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 12:35:11,513 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:35:11,623 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 12:35:11,647 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:35:11,648 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 12:38:51,930 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:38:51,931 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:38:51,932 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 12:38:51,936 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:38:51,937 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 12:47:03,904 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:47:03,909 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 12:47:03,941 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:47:03,942 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 12:50:29,131 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:50:30,673 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:50:32,174 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:54:39,325 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:54:39,328 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 12:54:39,370 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 12:54:39,371 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 12:54:47,111 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:54:48,675 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:54:50,070 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:55:49,338 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:55:50,785 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 12:55:52,203 [Worker-49: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 13:37:04,991 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 13:37:04,993 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 13:37:05,014 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 13:37:05,015 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 13:37:10,916 [Worker-63: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 13:37:11,645 [Worker-63: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 13:37:12,367 [Worker-63: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 13:59:34,400 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 13:59:34,400 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-02-17 13:59:34,402 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 13:59:34,402 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 14:00:16,991 [Worker-67: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:00:17,664 [Worker-67: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:00:18,353 [Worker-67: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:08:27,047 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 14:19:12,237 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The artifact org.hibernate:hibernate-validator:jar:6.1.5.Final has been relocated to org.hibernate.validator:hibernate-validator:jar:6.1.5.Final
+2021-02-17 14:19:12,895 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:19:12,896 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:19:12,897 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:19:12,901 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:19:12,901 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:19:16,546 [Worker-7: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier  to /model/target/classes
+2021-02-17 14:19:16,787 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:19:16,791 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 14:19:16,833 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:19:16,833 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 14:19:44,390 [Worker-3: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:19:45,365 [Worker-3: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:19:46,332 [Worker-3: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:21:40,746 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:21:40,750 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 14:21:40,768 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:21:40,769 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 14:30:30,790 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:30:30,791 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:30:30,791 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:30:30,795 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:30:30,795 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:32:10,671 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:32:10,671 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:32:10,672 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:32:10,675 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:32:10,676 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:33:26,670 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:33:27,374 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:33:28,095 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:37:29,795 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:37:29,798 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:37:29,799 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:37:29,801 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:37:29,801 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:37:32,147 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:37:32,148 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:37:32,148 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:37:32,152 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:37:32,152 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:40:30,906 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:40:30,907 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:40:30,907 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\main\resources
+2021-02-17 14:40:30,911 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:40:30,911 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\model\src\test\resources
+2021-02-17 14:42:06,330 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:42:06,332 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 14:42:06,371 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:42:06,371 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 14:42:15,948 [Worker-14: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:42:16,709 [Worker-14: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:42:17,435 [Worker-14: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:44:25,555 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:44:25,556 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2021-02-17 14:44:25,570 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 14:44:25,571 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\controller\src\test\resources
+2021-02-17 14:44:56,554 [Worker-11: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:44:57,262 [Worker-11: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:44:57,953 [Worker-11: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:45:30,958 [Worker-18: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:45:31,664 [Worker-18: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:45:32,393 [Worker-18: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:51:19,691 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:51:20,399 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:51:21,098 [Worker-15: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:52:38,390 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:52:39,084 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-02-17 14:52:39,775 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes

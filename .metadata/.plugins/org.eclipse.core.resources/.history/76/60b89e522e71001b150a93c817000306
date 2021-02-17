@@ -1,0 +1,14 @@
+package com.indracompany.treinamento.model.dto;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode
+public class OperacaoExtrato extends GenericDTO {
+	
+	private static final long serialVersionUIO = 1L;
+	
+	private String agencia, conta;
+
+}
