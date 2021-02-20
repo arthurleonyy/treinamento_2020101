@@ -14,32 +14,38 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-@Table(name = "contas")
+@Table(name = "extratos")
 @EqualsAndHashCode(callSuper = true)
-public class ContaBancaria extends GenericEntity<Long> {
-	
+public class ExtratoBancario extends GenericEntity<Long> {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5824703733929187165L;
+	private static final long serialVersionUID = -496546884476096750L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_cliente_id", nullable = false)
 	private Cliente cliente;
-	
+
 	@Column(name = "agencia", nullable = false, length = 4)
 	private String agencia;
-	
+
 	@Column(name = "numero", nullable = false, length = 6)
 	private String numero;
-	
+
 	@Column(name = "saldo", nullable = false)
 	private double saldo;
-
 	
-
+	@Column(name = "operacao", nullable = false)
+	private String operacao;
+	
+	@Column(name = "valor_em_transito", nullable = false)
+	private String valor;
+	
+//	@Column(name = "data", nullable = false)
+//	private String data;
 }
