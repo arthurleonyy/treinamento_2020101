@@ -40,6 +40,8 @@ public class ExtratoService extends GenericCrudService<Extrato, Long, ExtratoRep
 	
 public List<Extrato> gerarExtratoData(String agencia, String conta, Date data1, Date data2) {
 	
+		data2.setDate(data2.getDate() + 1);
+	
 		List<Extrato> acoes = repository.ExtratoData(agencia, conta, data1, data2);
 
 		if (acoes == null) {
