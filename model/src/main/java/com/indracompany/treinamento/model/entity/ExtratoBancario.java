@@ -1,6 +1,8 @@
 package com.indracompany.treinamento.model.entity;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +16,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -50,7 +51,10 @@ public class ExtratoBancario extends GenericEntity<Long> {
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data")
-	private Date data;
+	private Date data = new Date();
+	
+	@Column(name = "dataView")
+	private String dataView;
 	
 	
 	@Column(name = "contaOrigem", nullable = true)

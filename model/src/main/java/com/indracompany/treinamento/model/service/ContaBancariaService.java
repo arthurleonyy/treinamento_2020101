@@ -1,6 +1,9 @@
 package com.indracompany.treinamento.model.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Autowired
 	private ExtratoService extrato;
 	
+	Date data = new Date();
+	SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
 	
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
@@ -37,17 +43,33 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(), true);
 		
 		ContaBancaria conta = this.consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
+		ContaBancaria contaDestino = this.consultaConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
+		fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
+		String dataView = fmt.format(data);
 		
-		ExtratoBancario ext = new ExtratoBancario();
-		ext.setAgencia(dto.getAgenciaOrigem());
-		ext.setConta(dto.getNumeroContaOrigem());
-		ext.setCliente(conta.getCliente());
-		ext.setOperacao("transferencia");
-		ext.setValor(dto.getValor());
-		ext.setSaldo(conta.getSaldo());
-		ext.setContaOrigem(dto.getAgenciaOrigem() + " " + dto.getNumeroContaOrigem());
-		ext.setContaDestino(dto.getAgenciaDestino() + " " + dto.getNumeroContaDestino());
-		extrato.salvar(ext);
+		ExtratoBancario extOrigem = new ExtratoBancario();
+		extOrigem.setAgencia(dto.getAgenciaOrigem());
+		extOrigem.setConta(dto.getNumeroContaOrigem());
+		extOrigem.setCliente(conta.getCliente());
+		extOrigem.setOperacao("transferencia");
+		extOrigem.setValor(dto.getValor());
+		extOrigem.setSaldo(conta.getSaldo());
+		extOrigem.setContaOrigem(dto.getAgenciaOrigem() + " " + dto.getNumeroContaOrigem());
+		extOrigem.setContaDestino(dto.getAgenciaDestino() + " " + dto.getNumeroContaDestino());
+		extOrigem.setDataView(dataView);
+		extrato.salvar(extOrigem);
+		
+		ExtratoBancario extDestino = new ExtratoBancario();
+		extDestino.setAgencia(dto.getAgenciaDestino());
+		extDestino.setConta(dto.getNumeroContaDestino());
+		extDestino.setCliente(contaDestino.getCliente());
+		extDestino.setOperacao("transferencia");
+		extDestino.setValor(dto.getValor());
+		extDestino.setSaldo(contaDestino.getSaldo());
+		extDestino.setContaOrigem(dto.getAgenciaOrigem() + " " + dto.getNumeroContaOrigem());
+		extDestino.setContaDestino(dto.getAgenciaDestino() + " " + dto.getNumeroContaDestino());
+		extDestino.setDataView(dataView);
+		extrato.salvar(extDestino);
 	}
 	
 	
@@ -55,7 +77,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		
-		if (!ehTransf) {
+		if(!ehTransf) {
+			fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
+			String dataView = fmt.format(data);
 			ExtratoBancario ext = new ExtratoBancario();
 			ext.setAgencia(agencia);
 			ext.setConta(numeroConta);
@@ -63,6 +87,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 			ext.setOperacao("deposito");
 			ext.setValor(valor);
 			ext.setSaldo(conta.getSaldo());
+			ext.setDataView(dataView);
 			extrato.salvar(ext);
 		}
 		
@@ -77,7 +102,10 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		
-		if (!ehTransf) {
+		
+		if(!ehTransf) {
+			fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
+			String dataView = fmt.format(data);
 			ExtratoBancario ext = new ExtratoBancario();
 			ext.setAgencia(agencia);
 			ext.setConta(numeroConta);
@@ -85,6 +113,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 			ext.setOperacao("saque");
 			ext.setValor(valor);
 			ext.setSaldo(conta.getSaldo());
+			ext.setDataView(dataView);
 			extrato.salvar(ext);
 		}
 		

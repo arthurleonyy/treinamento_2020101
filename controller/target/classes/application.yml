@@ -13,6 +13,7 @@ spring:
     properties:      hibernate:
         jdbc:
           time-zone: GMT-03:00
+          date-format: yyyy-MM-dd HH:mm:ss
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     format-sql: false
@@ -35,7 +36,7 @@ spring:
 primary:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    jdbcUrl: jdbc:mysql://localhost:3306/treinamentoindra?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    jdbcUrl: jdbc:mysql://localhost:3306/treinamentoindra?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Sao_Paulo
     username: root
     password: vertrigo
 hibernate: 
