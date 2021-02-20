@@ -43,9 +43,9 @@ public class ExtratoBancario extends GenericEntity<Long> {
 	@Column(name = "operacao", nullable = false)
 	private String operacao;
 	
-	@Column(name = "valor_em_transito", nullable = false)
-	private String valor;
+	@Column(name = "valor", nullable = false)
+	private double valor;
 	
-//	@Column(name = "data", nullable = false)
-//	private String data;
+	@Column(name = "data", nullable = false)
+	private String data;
 }

@@ -1,5 +1,7 @@
 package com.indracompany.treinamento.model.service;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,29 +35,31 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	public void transferir(TransferenciaBancarioDTO dto) {
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
-//		Date data = new Date();
+
 		ExtratoBancario extrato = new ExtratoBancario();
-//		extrato.setOperacao("1");
-//		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
-//				+ ":" + data.getMinutes());
+		extrato.setOperacao("1");
+		Date data = new Date();
+		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
+		+ ":" + data.getMinutes());
 		extratoService.salvar(extrato);
 	}
 
 	public void depositar(String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
-//
-//		Date data = new Date();
-//
+		
+		
 		ExtratoBancario extrato = new ExtratoBancario();
-//		extrato.setAgencia(agencia);
-//		extrato.setNumero(numeroConta);
-//		extrato.setOperacao("2");
-//		extrato.setSaldo(conta.getSaldo());
-//		extrato.setValor(String.valueOf(valor));
-//		extrato.setCliente(conta.getCliente());
-//		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
-//				+ ":" + data.getMinutes());
+		extrato.setAgencia(agencia);
+		extrato.setNumero(numeroConta);
+		extrato.setOperacao("2");
+		extrato.setSaldo(conta.getSaldo());
+		extrato.setValor(valor);
+		extrato.setCliente(conta.getCliente());
+		Date data = new Date();
+		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
+		+ ":" + data.getMinutes());
+
 		extratoService.salvar(extrato);
 		super.salvar(conta);
 
@@ -68,37 +72,27 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 
-//		Date data = new Date();
-//
+
 		ExtratoBancario extrato = new ExtratoBancario();
-//		extrato.setAgencia(agencia);
-//		extrato.setNumero(numeroConta);
-//		extrato.setOperacao("3");
-//		extrato.setSaldo(conta.getSaldo());
-//		extrato.setValor(String.valueOf(valor));
-//		extrato.setCliente(conta.getCliente());
-//		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
-//				+ ":" + data.getMinutes());
+		extrato.setAgencia(agencia);
+		extrato.setNumero(numeroConta);
+		extrato.setOperacao("3");
+		extrato.setSaldo(conta.getSaldo());
+		extrato.setValor(valor);
+		extrato.setCliente(conta.getCliente());
+		Date data = new Date();
+		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
+		+ ":" + data.getMinutes());
+
+
 		extratoService.salvar(extrato);
 		super.salvar(conta);
 	}
 
 	public double consultarSaldo(String agencia, String numeroConta) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
-//		Date data = new Date();
-//
-		ExtratoBancario extrato = new ExtratoBancario();
-//
-//		extrato.setAgencia(agencia);
-//		extrato.setNumero(numeroConta);
-//		extrato.setOperacao("4");
-//
-//		extrato.setSaldo(conta.getSaldo());
-//		extrato.setCliente(conta.getCliente());
-//		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
-//				+ ":" + data.getMinutes());
-		extratoService.salvar(extrato);
 		return conta.getSaldo();
+		
 
 	}
 
@@ -108,15 +102,18 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_INVALIDA);
 		}
 
-//		Date data = new Date();
+
 		ExtratoBancario extrato = new ExtratoBancario();
-//		extrato.setAgencia(agencia);
-//		extrato.setNumero(numeroConta);
-//		extrato.setOperacao("2");
-//		extrato.setSaldo(conta.getSaldo());
-//		extrato.setCliente(conta.getCliente());
-//		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
-//				+ ":" + data.getMinutes());
+		extrato.setAgencia(agencia);
+		extrato.setNumero(numeroConta);
+		extrato.setOperacao("2");
+		extrato.setSaldo(conta.getSaldo());
+		extrato.setCliente(conta.getCliente());
+		Date data = new Date();
+		extrato.setData(java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(data) + " " + data.getHours()
+		+ ":" + data.getMinutes());
+
+
 		extratoService.salvar(extrato);
 		return conta;
 	}
