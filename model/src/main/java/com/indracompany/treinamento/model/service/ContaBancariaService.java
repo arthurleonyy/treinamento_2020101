@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.indracompany.treinamento.exception.AplicacaoException;
@@ -38,16 +37,19 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancarioDTO dto) {
 		
+		ContaBancaria contaOri = this.consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
+		ContaBancaria contaDest = this.consultaConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
+		
 		Transferencia = true;
 		
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
 		
-		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de " + dto.getValor() + " para "
-				+ "a Agencia destino: " + dto.getAgenciaDestino());
+		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de " + dto.getValor() + " para:  "
+				+ contaDest.getCliente().getNome());
 	
-		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor de " + dto.getValor() + " da Agencia "
-				+ "Origem: " + dto.getAgenciaOrigem());
+		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor:  " + dto.getValor() + " de:  "
+				+ contaOri.getCliente().getNome());
 		
 		Transferencia = false;
 		
