@@ -23,9 +23,11 @@ public class ExtratoBancarioService extends GenericCrudService<ExtratoBancario, 
 	
 	public List<ExtratoBancario> listarExtrato(String agencia, String numeroConta) {
 		ContaBancaria conta = contaBancariaService.consultarConta(agencia,numeroConta);
-		List<ExtratoBancario> extratoDoCliente = repository.findByContaBancariaOrigem(conta);
+		List<ExtratoBancario> extratoDoCliente = repository.findByContaBancariaOrigem(conta);		
+
+		//método abaixo serve para adicionar ao extrato da conta bancaria requisitada 
+		//as transferencias bancárias recebidas de forma ordenada pelo id do extrato.
 		
-		//método abaixo serve para adicionar ao extrato da conta bancaria requisitada as transferencias bancárias recebidas
 		List<ExtratoBancario> tempList = repository.findByContaBancariaDestino(conta);
 		if (!tempList.isEmpty()) {			
 			int i = 0;

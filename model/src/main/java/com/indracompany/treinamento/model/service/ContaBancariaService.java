@@ -31,7 +31,8 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
 		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
-		extratoBancarioService.atualizarExtrato("Realizou uma busca por contas cadastradas no cpf", 0,null, null, cli, null);
+		now = LocalDateTime.now();
+		extratoBancarioService.atualizarExtrato("Realizou uma busca por contas cadastradas no cpf", 0,null, null, cli, dtf.format(now));
 		return contasDoCliente;
 	}
 	

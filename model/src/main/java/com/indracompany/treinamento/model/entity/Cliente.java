@@ -33,7 +33,7 @@ public class Cliente extends GenericEntity<Long> {
 	private static final long serialVersionUID = -2847865650784407318L;
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "nome")
