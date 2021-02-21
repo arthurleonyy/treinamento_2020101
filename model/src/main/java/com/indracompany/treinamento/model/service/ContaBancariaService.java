@@ -1,5 +1,6 @@
 package com.indracompany.treinamento.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.Cliente;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
-import com.indracompany.treinamento.model.entity.enums.TransacaoEnum;
 import com.indracompany.treinamento.model.repository.ContaBancariaRepository;
 
 @Service
@@ -21,7 +21,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	private ClienteService clienteService;
 
 	@Autowired
-	private TransacaoExtratoService tes;
+	private ExtratoBancarioService extratoBancarioService;
 
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
@@ -31,30 +31,32 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
-		TransacaoEnum trasacao = TransacaoEnum.Transferencia;
-		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
-		ContaBancaria contaDestino = this.consultaConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
-		tes.geraExtrato(contaDestino, dto.getValor(), trasacao);
+		String descricaoSaque = "TRANSFERENCIA PARA AG: "+dto.getAgenciaDestino() +" CONTA: "+dto.getNumeroContaDestino();
+		String descricaoDeposito = "TRANSFERENCIA DE AG: "+dto.getAgenciaOrigem() +" CONTA: "+dto.getNumeroContaOrigem();;
+		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(), descricaoSaque);
+		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(), descricaoDeposito);
 	}
 
-	public void depositar(String agencia, String numeroConta, double valor) {
+	public void depositar (String agencia, String numeroConta, double valor, String descricao) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
-		TransacaoEnum trasacao = TransacaoEnum.Deposito;
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
-		tes.geraExtrato(conta, valor, trasacao);
+		
+		extratoBancarioService.registarOperacaoExtrato(conta, descricao == null ? "DEPOSITO" : descricao, valor, 'C',
+				LocalDate.now());
 	}
 
-	public void sacar(String agencia, String numeroConta, double valor) {
+	public void sacar (String agencia, String numeroConta, double valor, String descricao) {
 		ContaBancaria conta = this.consultaConta(agencia, numeroConta);
-		TransacaoEnum trasacao = TransacaoEnum.Saque;
 		if (conta.getSaldo() < valor) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
-		tes.geraExtrato(conta, (- valor ), trasacao);
+		
+		extratoBancarioService.registarOperacaoExtrato(conta, descricao == null ? "SAQUE" : descricao, valor, 'D',
+				LocalDate.now());
+
 	}
 
 	public double consultarSaldo(String agencia, String numeroConta) {
