@@ -32,17 +32,23 @@
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>
+<<<<<<< HEAD
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="m2e-apt" value="true"/>
+=======
+>>>>>>> master
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>
+<<<<<<< HEAD
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="m2e-apt" value="true"/>
+=======
+>>>>>>> master
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
