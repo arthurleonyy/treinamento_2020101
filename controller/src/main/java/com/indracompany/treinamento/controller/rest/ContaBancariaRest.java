@@ -2,6 +2,7 @@ package com.indracompany.treinamento.controller.rest;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.indracompany.treinamento.model.dto.ConsultaExtratoDTO;
 import com.indracompany.treinamento.model.dto.DepositoDTO;
+import com.indracompany.treinamento.model.dto.ExtratoBancarioDTO;
 import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
+import com.indracompany.treinamento.model.service.ExtratoBancarioService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -26,6 +30,9 @@ import io.swagger.annotations.ApiParam;
 @CrossOrigin(origins = "*")
 @RequestMapping("rest/conta")
 public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService>{
+	
+	@Autowired
+	private ExtratoBancarioService extratoBancarioService;
 	
 	@RequestMapping(value = "/consultar-saldo/{agencia}/{numConta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, 
@@ -36,13 +43,13 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	
 	@RequestMapping(value = "/deposito", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> depositar(final @RequestBody DepositoDTO dto){
-		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		getService().depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), null);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saque", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> sacar(final @RequestBody SaqueDTO dto){
-		getService().sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		getService().sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), null);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -60,6 +67,14 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		
 	}
 	
+	@RequestMapping(value = "/extrato", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<ExtratoBancarioDTO>> consultarExtratoBancario(final @RequestBody ConsultaExtratoDTO param){
+		
+		List<ExtratoBancarioDTO> extrato = extratoBancarioService.obterExtrato(param.getAgencia(), param.getNumConta(),
+				param.getDataIni(), param.getDataFim());
+		
+		return new ResponseEntity<>(extrato, HttpStatus.OK);
+	}
 	
 	
 }
