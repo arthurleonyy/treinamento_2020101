@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'operacoes',
-    loadChildren: './modules/conta/pages/operacoes.module#OperacoesModule'
+    loadChildren: './modules/conta/operacoes.module#OperacoesModule'
   },
   {
     path: '**',
