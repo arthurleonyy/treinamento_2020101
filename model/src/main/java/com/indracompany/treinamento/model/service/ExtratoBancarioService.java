@@ -33,9 +33,11 @@ public class ExtratoBancarioService extends GenericCrudService<ExtratoBancario, 
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_DATA_INVALIDA);
 		}
 		List<ExtratoBancario> extrato = repository.buscarEntreDatasSQL(dto.getAgencia(), dto.getConta(), dto.getDataInicio(), dto.getDataFim());
+		
 		if(extrato.isEmpty()) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_DADOS_INCORRETOS);
 		}
+		
 		return extrato;
 		
 

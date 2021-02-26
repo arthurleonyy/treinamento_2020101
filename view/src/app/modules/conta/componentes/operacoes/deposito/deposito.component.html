@@ -1,0 +1,29 @@
+   
+	<mat-expansion-panel [(expanded)]="xpandStatus">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				Deposito
+			</mat-panel-title>
+			
+            <mat-icon class="fas fa-hand-holding-usd"></mat-icon>
+		
+		</mat-expansion-panel-header>
+
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Valor do Deposito</mat-label>
+            <input  matInput  type="number" min="1" placeholder="R$" > 
+          
+        </mat-form-field>
+
+
+
+        <mat-action-row>
+            <div class="button-row">
+                <button name="buttonDangr" type="button" class="btn btn-danger" (click)="xpandStatus=xpandStatus?false:true">Cancelar</button>
+           
+           
+                <button name="buttonSucss"  type="button" class="btn btn-success"  (click)="nextStep()">Confirmar</button>
+            </div> 
+          </mat-action-row>
+        </mat-expansion-panel>

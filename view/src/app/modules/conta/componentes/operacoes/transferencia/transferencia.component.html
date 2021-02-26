@@ -1,0 +1,40 @@
+   
+	<mat-expansion-panel [(expanded)]="xpandStatus">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				Transferência
+			</mat-panel-title>
+			
+            <mat-icon class="fas fa-hand-holding-usd"></mat-icon>
+		
+		</mat-expansion-panel-header>
+
+        <div id="content">
+        <mat-form-field appearance="legacy">
+            <mat-label>Agencia de Destino</mat-label>
+            <input  matInput  type="text"  placeholder="XXXXX-X" > 
+          
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Conta de Destino</mat-label>
+            <input  matInput  type="number" placeholder="123456" > 
+          
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Valor da Transferência</mat-label>
+            <input  matInput  type="number" min="1" placeholder="R$" > 
+          
+        </mat-form-field>
+    </div>
+
+    <mat-action-row>
+        <div class="button-row">
+            <button name="buttonDangr" type="button" class="btn btn-danger" (click)="xpandStatus=xpandStatus?false:true">Cancelar</button>
+       
+       
+            <button name="buttonSucss"  type="button" class="btn btn-success"  (click)="nextStep()">Confirmar</button>
+        </div> 
+      </mat-action-row>
+	</mat-expansion-panel>
