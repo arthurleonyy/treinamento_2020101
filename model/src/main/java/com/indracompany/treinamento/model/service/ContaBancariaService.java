@@ -45,10 +45,10 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
 		
-		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de " + dto.getValor() + " para:  "
+		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de " + dto.getValor() + " para: "
 				+ contaDest.getCliente().getNome());
 	
-		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor:  " + dto.getValor() + " de:  "
+		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor:  " + dto.getValor() + " de: "
 				+ contaOri.getCliente().getNome());
 		
 		Transferencia = false;
