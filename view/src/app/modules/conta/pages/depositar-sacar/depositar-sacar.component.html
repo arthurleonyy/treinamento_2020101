@@ -10,25 +10,28 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label class="form-required">
-              <small>Agência</small>
+              <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
             </label>
-            <input type="text" class="form-control" formControlName="agencia">
+            <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
+            <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label class="form-required">
-              <small>Número da conta</small>
+              <small [ngClass]="{'text-red': displayMessage.numeroConta}">Número da conta</small>
             </label>
-            <input type="text" class="form-control" formControlName="numeroConta">
+            <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}">
+            <small class="form-text text-red" [innerHTML]="displayMessage.numeroConta"></small>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label class="form-required">
-              <small>Valor</small>
+              <small [ngClass]="{'text-red': displayMessage.valor}">Valor</small>
             </label>
-            <input type="number" class="form-control" formControlName="valor">
+            <input type="number" class="form-control" formControlName="valor" [ngClass]="{'is-invalid': displayMessage.valor}">
+            <small class="form-text text-red" [innerHTML]="displayMessage.valor"></small>
           </div>
         </div>
       </div>
@@ -37,7 +40,7 @@
   <div class="card-footer">
     <div class="row">
       <div class="col-12">
-        <button type="submit" class="btn btn-danger float-right">
+        <button type="submit" class="btn btn-danger float-right" [disabled]="form.invalid" (click)="onSubmit()">
           <i class="fa fa-check"></i>
           Salvar
         </button>
@@ -49,5 +52,3 @@
     </div>
   </div>
 </div>
-
-<pre>{{ form.value | json }}</pre>
