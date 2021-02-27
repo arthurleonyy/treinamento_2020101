@@ -16,4 +16,8 @@ export class ContaService {
         return this.apiService.post(`${this.controller}/deposito`, conta);
     }
 
+    sacar(conta: ContaDTO): Observable<any> {
+        return this.apiService.post(`${this.controller}/saque`, conta);
+    }
+
 }

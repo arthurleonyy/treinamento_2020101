@@ -14,6 +14,8 @@ import { ValidatorsCustom } from 'src/app/shared/utils/validators-custom';
 })
 export class DepositarSacarComponent extends FormBase implements OnInit {
 
+  nameScreen = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private contaService: ContaService,
@@ -23,8 +25,23 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
   }
 
   ngOnInit() {
+    this.getNameScreen();
     this.validateMensageError();
     this.createFormGroup();
+
+    this.contaService.listaConta().subscribe(
+      response => {
+        console.log(response)
+      }
+    );
+  }
+
+  private getNameScreen() {
+    if (this.router.url.includes('depositar')) {
+      this.nameScreen = 'Depositar';
+    } else if (this.router.url.includes('sacar')) {
+      this.nameScreen = 'Sacar';
+    }
   }
 
   createFormGroup() {
@@ -56,18 +73,40 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       let conta = new ContaDTO(this.form.value);
-      this.contaService.depositar(conta).subscribe(
-        response => {
-          SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
-            result => {
-              if (result.dismiss) {
-                this.router.navigate(['conta/operacoes']);
-              }
-            }
-          );
-        }
-      );
+      if (this.nameScreen === 'Depositar') {
+        this.depositar(conta);
+      } else if (this.nameScreen === 'Sacar') {
+        this.sacar(conta);
+      }
     }
+  }
+
+  private depositar(conta: ContaDTO) {
+    this.contaService.depositar(conta).subscribe(
+      response => {
+        SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
+          result => {
+            if (result.dismiss) {
+              this.router.navigate(['conta/operacoes']);
+            }
+          }
+        );
+      }
+    );
+  }
+
+  private sacar(conta: ContaDTO) {
+    this.contaService.sacar(conta).subscribe(
+      response => {
+        SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
+          result => {
+            if (result.dismiss) {
+              this.router.navigate(['conta/operacoes']);
+            }
+          }
+        );
+      }
+    );
   }
 
 }
