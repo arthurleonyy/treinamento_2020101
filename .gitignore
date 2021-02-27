@@ -1,2 +1,14 @@
-/controller/
-/model/
+view\client\node_modules
+model\target
+model\bin
+controller\target
+controller\bin
+.settings
+.metadata
+.idea
+target
+bin
+*.classpath
+*.factorypath
+*.project
+*.factorypath
