@@ -2,6 +2,7 @@ package com.indracompany.treinamento.controller.rest;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import com.indracompany.treinamento.model.dto.TransacaoDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
+import com.indracompany.treinamento.model.service.ExtratoBancarioService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
