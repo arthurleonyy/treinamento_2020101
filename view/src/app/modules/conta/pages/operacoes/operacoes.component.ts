@@ -10,7 +10,6 @@ export class OperacoesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }

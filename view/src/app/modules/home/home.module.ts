@@ -4,7 +4,9 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
-  declarations: [InicioComponent],
+  declarations: [
+    InicioComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule
