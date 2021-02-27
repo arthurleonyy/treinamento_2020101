@@ -17,6 +17,8 @@ import lombok.EqualsAndHashCode;
 @Table(name = "contas")
 @EqualsAndHashCode(callSuper = true)
 public class ContaBancaria extends GenericEntity<Long> {
+	
+	private static final long serialVersionUID = -2847865650784407318L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
