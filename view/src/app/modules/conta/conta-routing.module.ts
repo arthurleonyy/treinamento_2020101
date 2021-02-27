@@ -1,21 +1,32 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { ContaComponent } from './pages/conta.component';
-
-import { OperacoesComponent } from './operacoes/operacoes.component';
-
+import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
+import { OperacoesComponent } from './pages/operacoes/operacoes.component';
 
 const routes: Routes = [
-    {
+  {
+    path: '',
+    component: ContaComponent,
+    children: [
+      {
         path: '',
-        component: ContaComponent,
-    }, {
+        component: OperacoesComponent
+      },
+      {
         path: 'operacoes',
         component: OperacoesComponent
-    }
+      },
+      {
+        path: 'depositar',
+        component: DepositarSacarComponent
+      },
+    ]
+  },
 ];
+
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class ContaRoutingModule { }

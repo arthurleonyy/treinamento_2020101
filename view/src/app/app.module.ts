@@ -15,7 +15,6 @@ import { PaginaNaoEncontradaComponent } from './layouts/pages/pagina-nao-encontr
 import { PaginaSemAutorizacaoComponent } from './layouts/pages/pagina-sem-autorizacao/pagina-sem-autorizacao.component';
 import { SharedModule } from './shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +23,7 @@ import { SharedModule } from './shared/shared.module';
     FooterComponent,
     SidebarComponent,
     PaginaNaoEncontradaComponent,
-    PaginaSemAutorizacaoComponent,
-    
+    PaginaSemAutorizacaoComponent
   ],
   imports: [
     BrowserModule,
