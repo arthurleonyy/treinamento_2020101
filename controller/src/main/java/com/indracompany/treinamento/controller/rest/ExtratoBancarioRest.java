@@ -27,4 +27,11 @@ public class ExtratoBancarioRest extends GenericCrudRest<ExtratoBancario, Long, 
 		List<ExtratoBancario> extratoBancario = getService().listarExtrato(agencia, numConta);
 		return  new ResponseEntity<>(extratoBancario, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/consultar-extrato-bancario-data/{agencia}/{numConta}/{data-inicial}/{data-final}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<ExtratoBancario>> consultarExtratoBancarioPorData(final @PathVariable String agencia, 
+			final @PathVariable String numConta, final @PathVariable String dataInicio, final @PathVariable String dataFinal) {
+		List<ExtratoBancario> extratoBancario = getService().listarExtratoPorData(agencia, numConta,dataInicio,dataFinal);
+		return  new ResponseEntity<>(extratoBancario, HttpStatus.OK);
+	}
 }

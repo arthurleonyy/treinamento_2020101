@@ -16,39 +16,55 @@ public class ExtratoBancarioService extends GenericCrudService<ExtratoBancario, 
 	@Autowired
 	private ContaBancariaService contaBancariaService;
 	
+	private void CheckAccountByDestination(ContaBancaria conta, List<ExtratoBancario> extratoDoCliente){
+		//método abaixo serve para adicionar ao extrato da conta bancaria requisitada 
+				//as transferencias bancárias recebidas de forma ordenada pelo id do extrato.
+				
+				List<ExtratoBancario> tempList = repository.findByContaBancariaDestino(conta);
+				if (!tempList.isEmpty()) {			
+					int i = 0;
+					for (ExtratoBancario ebTemp: tempList) {
+						if (extratoDoCliente.isEmpty()) {
+							extratoDoCliente.add(ebTemp);
+						}else {
+							for(ExtratoBancario ebOriginal: extratoDoCliente) {
+								if (ebTemp.getId() > ebOriginal.getId()){							
+									i++;
+									if(i == extratoDoCliente.size()){							
+										extratoDoCliente.add(ebTemp);							
+										i = 0;
+										break;
+									}
+								}else {
+									extratoDoCliente.add(i, ebTemp);
+									i = 0;
+									break;
+								}
+							}
+						}
+					}
+				}
+				
+	}
+	
+	
 	public void atualizarExtrato (String relatorio, double valor, ContaBancaria contaOrigem, ContaBancaria contaDestino, Cliente cliente, String data) {	
 		ExtratoBancario extrato = new ExtratoBancario(relatorio,valor,contaOrigem,contaDestino,cliente,data);				
 		super.salvar(extrato);			
 	}
 	
+	
 	public List<ExtratoBancario> listarExtrato(String agencia, String numeroConta) {
 		ContaBancaria conta = contaBancariaService.consultarConta(agencia,numeroConta);
 		List<ExtratoBancario> extratoDoCliente = repository.findByContaBancariaOrigem(conta);		
-
-		//método abaixo serve para adicionar ao extrato da conta bancaria requisitada 
-		//as transferencias bancárias recebidas de forma ordenada pelo id do extrato.
-		
-		List<ExtratoBancario> tempList = repository.findByContaBancariaDestino(conta);
-		if (!tempList.isEmpty()) {			
-			int i = 0;
-			for (ExtratoBancario ebTemp: tempList) {
-				if (extratoDoCliente.isEmpty()) {
-					extratoDoCliente.add(ebTemp);
-				}else {
-					for(ExtratoBancario ebOriginal: extratoDoCliente) {
-						if (ebTemp.getId() > ebOriginal.getId()){
-							i++;						
-						}else {
-							extratoDoCliente.add(i, ebTemp);
-							i = 0;
-							break;
-						}
-					}
-				}
-			}
-		}
-		
-		
+		CheckAccountByDestination(conta, extratoDoCliente);		
+		return extratoDoCliente;
+	}
+	
+	public List<ExtratoBancario> listarExtratoPorData(String agencia, String numeroConta, String dataInicial, String dataFinal){
+		ContaBancaria conta = contaBancariaService.consultarConta(agencia,numeroConta);
+		List<ExtratoBancario> extratoDoCliente = repository.findByContaBancariaOrigem(conta);		
+		CheckAccountByDestination(conta, extratoDoCliente);		
 		return extratoDoCliente;
 	}
 	
