@@ -19,10 +19,10 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label class="form-required">
-              <small [ngClass]="{'text-red': displayMessage.numeroConta}">Número da conta</small>
+              <small [ngClass]="{'text-red': displayMessage.conta}">Número da conta</small>
             </label>
-            <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}">
-            <small class="form-text text-red" [innerHTML]="displayMessage.numeroConta"></small>
+            <input type="text" class="form-control" formControlName="conta" [ngClass]="{'is-invalid': displayMessage.conta}">
+            <small class="form-text text-red" [innerHTML]="displayMessage.conta"></small>
           </div>
         </div>
         <div class="col-12 col-md-4">

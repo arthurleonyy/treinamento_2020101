@@ -28,12 +28,6 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
     this.getNameScreen();
     this.validateMensageError();
     this.createFormGroup();
-
-    this.contaService.listaConta().subscribe(
-      response => {
-        console.log(response)
-      }
-    );
   }
 
   private getNameScreen() {
@@ -47,7 +41,7 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
   createFormGroup() {
     this.form = this.formBuilder.group({
       agencia:      ['', [Validators.required]],
-      numeroConta:  ['', [Validators.required]],
+      conta:  ['', [Validators.required]],
       valor:        [0, [Validators.required, ValidatorsCustom.lessThanOne]],
     });
   }
@@ -60,7 +54,7 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
       agencia: {
         required: 'Agência obrigatória.'
       },
-      numeroConta: {
+      conta: {
         required: 'Número da conta obrigatório.'
       },
       valor: {

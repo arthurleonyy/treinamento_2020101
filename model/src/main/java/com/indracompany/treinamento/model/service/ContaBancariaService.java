@@ -33,14 +33,24 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
-		ContaBancaria contaOrigem = consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
-		
+		ContaBancaria contaOrigem;
+		try {
+			contaOrigem = consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
+		}catch (AplicacaoException e) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_ORIGEM_TRANSFERENCIA_INVALIDA);
+		}
 		if (contaOrigem.getSaldo() < dto.getValor()) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
 		contaOrigem.setSaldo(contaOrigem.getSaldo() - dto.getValor());
 		
-		ContaBancaria contaDestino = consultaConta(dto.getAgenciaDestino(),dto.getNumeroContaDestino());
+		ContaBancaria contaDestino;
+		
+		try {
+			contaDestino = consultaConta(dto.getAgenciaDestino(),dto.getNumeroContaDestino());
+		}catch (AplicacaoException e) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_DESTINO_TRANSFERENCIA_INVALIDA);
+		}
 		
 		contaDestino.setSaldo(contaDestino.getSaldo() + dto.getValor());
 		
@@ -78,6 +88,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	public ContaBancaria consultaConta(String agencia, String numeroConta) {
 		ContaBancaria conta = repository.findByAgenciaAndNumero(agencia, numeroConta);
+		if(conta == null) throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_INVALIDA);
 		return conta;
 	}
 }

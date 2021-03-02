@@ -26,6 +26,8 @@ public enum ExceptionValidacoes implements AplicacaoExceptionValidacoes {
   ERRO_LOGIN_SENHA_INVALIDO("msg.erro.login.senha.invalido", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_CPF_INVALIDO("msg.erro.cpf.invalido", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_CONTA_INVALIDA("msg.erro.conta.invalida",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
+  ERRO_CONTA_ORIGEM_TRANSFERENCIA_INVALIDA("msg.erro.conta.origem.transferencia.invalida",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
+  ERRO_CONTA_DESTINO_TRANSFERENCIA_INVALIDA("msg.erro.conta.destino.transferencia.invalida",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_SALDO_INSUFICIENTE("msg.saldo.insuficiente",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_PERIODO_INVALIDO("msg.erro.periodo.invalido",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ALERTA_NENHUMA_OPERACAO_REGISTRADA("msg.app.alerta.nenhuma.operacao.bancaria.registrada",null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA),

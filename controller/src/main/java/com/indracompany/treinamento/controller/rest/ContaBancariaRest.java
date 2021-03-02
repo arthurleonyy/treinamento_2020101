@@ -18,7 +18,6 @@ import com.indracompany.treinamento.model.dto.TransacaoDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
-import com.indracompany.treinamento.model.service.ExtratoBancarioService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

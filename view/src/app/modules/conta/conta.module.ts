@@ -7,12 +7,16 @@ import { ContaRoutingModule } from './conta-routing.module';
 import { ContaComponent } from './pages/conta.component';
 import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
 import { OperacoesComponent } from './pages/operacoes/operacoes.component';
+import { TransferirComponent } from './pages/transferir/transferir.component';
+import { VerificarSaldoComponent } from './pages/verificar-saldo/verificar-saldo.component';
 
 @NgModule({
   declarations: [
     ContaComponent,
     OperacoesComponent,
-    DepositarSacarComponent
+    DepositarSacarComponent,
+    TransferirComponent,
+    VerificarSaldoComponent,
   ],
   imports: [
     CommonModule,

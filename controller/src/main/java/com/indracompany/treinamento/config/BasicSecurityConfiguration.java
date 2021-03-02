@@ -32,7 +32,7 @@ public class BasicSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			authorizeRequests().antMatchers("/", "/public/**","/login*","/swagger-ui.html*", "/webjars/**","/v2/**").permitAll()
 			//.authorizeRequests().antMatchers("/**").permitAll();
 			.and()
-			.authorizeRequests().antMatchers("/rest/**").authenticated();
+			.authorizeRequests().antMatchers("/treinamento/rest/**").authenticated();
 
 		http
 			.logout()
