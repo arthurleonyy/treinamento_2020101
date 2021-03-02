@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormBase } from 'src/app/core/classes/form-base';
+import { ContaDTO } from 'src/app/core/dtos/conta.dto';
+import { ContaService } from 'src/app/core/services/conta.service';
+import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
+import { ValidatorsCustom } from 'src/app/shared/utils/validators-custom';
 
 @Component({
   selector: 'app-depositar-sacar',
@@ -9,26 +14,97 @@ import { FormBase } from 'src/app/core/classes/form-base';
 })
 export class DepositarSacarComponent extends FormBase implements OnInit {
 
-  constructor(private formBuilder: FormBuilder)
+  nameScreen = '';
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private contaService: ContaService,
+    public router: Router,
+    )
   {
     super();
   }
 
   ngOnInit(): void {
+    this.getNameScreen();
     this.validateMensageError();
     this.createFormGroup();
+
+    /* this.contaService.listaConta().subscribe(
+      response => {
+        console.log(response)
+      }
+    );*/
   }
 
-  createFormGroup(){
+  private getNameScreen() {
+    if (this.router.url.includes('depositar')) {
+      this.nameScreen = 'Depositar';
+    } else if (this.router.url.includes('sacar')) {
+      this.nameScreen = 'Sacar';
+    }
+  }
+
+  createFormGroup() {
     this.form = this.formBuilder.group({
-      agencia: [''],
-      numeroConta: [''],
-      valor: [0]
+      agencia:      ['', [Validators.required]],
+      numeroConta:  ['', [Validators.required]],
+      valor:        [0, [Validators.required, ValidatorsCustom.lessThanOne]],
     });
   }
 
-  validateMensageError(){
-    this.createValidateFieldMessage({});
+  /**
+   * Seta a mensagem de validação que irá ser exibida ao usuário
+   */
+  validateMensageError() {
+    this.createValidateFieldMessage({
+      agencia: {
+        required: 'Agência obrigatória.'
+      },
+      numeroConta: {
+        required: 'Número da conta obrigatório.'
+      },
+      valor: {
+        required: 'Valor obrigatório.',
+        lessThanOne: 'Valor informado deve ser maior que zero.'
+      }
+    });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      let conta = new ContaDTO(this.form.value);
+      this.contaService.depositar(conta).subscribe(
+        response => {
+          SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
+            result => {
+              if (result.dismiss) {
+                this.router.navigate(['conta/operacoes']);
+              }
+            }
+          );
+        }
+      );
+     /* if (this.nameScreen === 'Depositar') {
+        this.depositar(conta);
+      } else if (this.nameScreen === 'Sacar') {
+        this.sacar(conta);
+      }*/
+    }
+  }
+
+  private depositar(conta: ContaDTO) {
+    this.contaService.depositar(conta).subscribe(
+      response => {
+        SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
+          result => {
+            if (result.dismiss) {
+              this.router.navigate(['conta/operacoes']);
+            }
+          }
+        );
+      }
+    );
   }
 
 }
