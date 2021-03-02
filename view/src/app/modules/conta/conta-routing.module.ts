@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'depositar',
         component: DepositarSacarComponent
       },
+      {
+        path: 'sacar',
+        component: DepositarSacarComponent
+      },
     ]
   },
 ];
