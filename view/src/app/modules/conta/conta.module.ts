@@ -8,12 +8,14 @@ import { CoreModule } from 'src/app/core/core.module';
 import { RouterModule } from '@angular/router';
 import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TransferirComponent } from './pages/transferir/transferir.component';
 
 @NgModule({
   declarations: [
     ContaComponent,
     OperacoesComponent,
-    DepositarSacarComponent
+    DepositarSacarComponent,
+    TransferirComponent
   ],
   imports: [
     CommonModule,
