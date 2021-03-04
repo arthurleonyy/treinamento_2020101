@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: './modules/conta/conta.module#ContaModule'
   },
   {
-    path: 'operacoes',
-    loadChildren: './modules/conta/operacoes.module#OperacoesModule'
-  },
-  {
     path: '**',
     component: PaginaNaoEncontradaComponent
   },

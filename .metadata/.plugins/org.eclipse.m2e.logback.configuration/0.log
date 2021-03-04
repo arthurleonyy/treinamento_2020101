@@ -295,3 +295,24 @@
 2021-02-17 14:52:38,390 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
 2021-02-17 14:52:39,084 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
 2021-02-17 14:52:39,775 [Worker-21: Launching controller - AppConfig] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/model: com.indracompany:treinamento-model:1.0 with classifier null to /model/target/classes
+2021-03-03 21:39:22,348 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-03-03 21:39:45,398 [Worker-7: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://www-bin.prevnet/repository/public-releases/org/springframework/boot/spring-boot-starter-parent/2.3.1.RELEASE/spring-boot-starter-parent-2.3.1.RELEASE.pom
+2021-03-03 21:40:27,612 [Worker-4: reload maven project] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.indracompany:treinamento:1.0: Failure to transfer org.springframework.boot:spring-boot-starter-parent:pom:2.3.1.RELEASE from https://www-bin.prevnet/repository/public-releases/ was cached in the local repository, resolution will not be reattempted until the update interval of releases has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.boot:spring-boot-starter-parent:pom:2.3.1.RELEASE from/to releases (https://www-bin.prevnet/repository/public-releases/): Este host não é conhecido (www-bin.prevnet) and 'parent.relativePath' points at no local POM @ com.indracompany:treinamento:1.0, C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\pom.xml, line 6, column 10
+
+org.apache.maven.project.ProjectBuildingException: Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.indracompany:treinamento:1.0: Failure to transfer org.springframework.boot:spring-boot-starter-parent:pom:2.3.1.RELEASE from https://www-bin.prevnet/repository/public-releases/ was cached in the local repository, resolution will not be reattempted until the update interval of releases has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.boot:spring-boot-starter-parent:pom:2.3.1.RELEASE from/to releases (https://www-bin.prevnet/repository/public-releases/): Este host não é conhecido (www-bin.prevnet) and 'parent.relativePath' points at no local POM @ com.indracompany:treinamento:1.0, C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\pom.xml, line 6, column 10
+
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProjects(MavenImpl.java:676)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.lambda$13(ProjectRegistryManager.java:870)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:1027)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectsWithDependencies(ProjectRegistryManager.java:866)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:210)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:81)
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:259)
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:634)
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$3.run(MavenPomEditor.java:938)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

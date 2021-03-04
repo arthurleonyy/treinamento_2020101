@@ -50,4 +50,14 @@
 			<item value="C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101"/>
 		</list>
 	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="377"/>
+		<item key="DIALOG_Y_ORIGIN" value="185"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
 </section>

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
+import { ConsultarSaldoDTO } from '../dtos/consultar_saldo';
 
 const BASE_URL = environment.apiUrl;
 
@@ -10,6 +11,9 @@ const BASE_URL = environment.apiUrl;
   providedIn: 'root'
 })
 export class ApiService {
+  pull(arg0: string, conta: ConsultarSaldoDTO): Observable<any> {
+      throw new Error("Method not implemented.");
+  }
 
   constructor(
     private httpClient: HttpClient

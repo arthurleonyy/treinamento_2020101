@@ -1,7 +1,10 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConsultarSaldoComponent } from './pages/consultar_saldo/consultar_saldo.component';
 import { ContaComponent } from './pages/conta.component';
-import { OperacoesComponent } from './pages/operacoes.component';
+import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
+import { OperacoesComponent } from './pages/operacoes/operacoes.component';
+import { TransferirComponent } from './pages/transferir/transferir.component';
 
 const routes: Routes = [
   {
@@ -9,10 +12,30 @@ const routes: Routes = [
     component: ContaComponent,
     children: [
       {
-      path:'operacoes',
-      component: OperacoesComponent,
-    }
-  ]
+        path: '',
+        component: OperacoesComponent
+      },
+      {
+        path: 'operacoes',
+        component: OperacoesComponent
+      },
+      {
+        path: 'depositar',
+        component: DepositarSacarComponent
+      },
+      {
+        path: 'sacar',
+        component: DepositarSacarComponent
+      },
+      {
+        path: 'transferir',
+        component: TransferirComponent
+      },
+      {
+        path: 'consultar-saldo',
+        component: ConsultarSaldoComponent
+      },
+    ]
   },
 ];
 
