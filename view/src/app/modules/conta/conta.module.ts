@@ -9,13 +9,15 @@ import { RouterModule } from '@angular/router';
 import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransferirComponent } from './pages/transferir/transferir.component';
+import { SaldoComponent } from './pages/saldo/saldo.component';
 
 @NgModule({
   declarations: [
     ContaComponent,
     OperacoesComponent,
     DepositarSacarComponent,
-    TransferirComponent
+    TransferirComponent,
+    SaldoComponent
   ],
   imports: [
     CommonModule,

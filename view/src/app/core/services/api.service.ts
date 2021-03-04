@@ -36,6 +36,8 @@ export class ApiService {
    * @param path URL path
    */
   public get(path: string): Observable<any> {
+    let teste = '';
+    console.log(this.httpClient.get(BASE_URL + path, this.getOptions()));
     return this.httpClient.get(BASE_URL + path, this.getOptions())
       .pipe(catchError((e: any) => throwError(e)));
   }
