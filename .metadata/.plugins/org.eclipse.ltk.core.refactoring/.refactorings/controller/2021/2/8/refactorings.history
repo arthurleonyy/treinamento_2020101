@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename compilation unit &apos;com.indracompany.treinamento.controller.rest.OperacaoExtrato.java&apos; to &apos;OperacaoExtratoRest.java&apos;&#x0D;&#x0A;- Original project: &apos;controller&apos;&#x0D;&#x0A;- Original element: &apos;com.indracompany.treinamento.controller.rest.OperacaoExtrato.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.indracompany.treinamento.controller.rest.OperacaoExtratoRest.java&apos;" description="Rename compilation unit &apos;OperacaoExtrato.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.indracompany.treinamento.controller.rest{OperacaoExtrato.java" name="OperacaoExtratoRest.java" references="false" stamp="1613579710904" version="1.0"/>
-</session>

@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+C:\ambiente\workspaces\workspace-treinamento\treinamento_2020101\.metadata\.plugins\org.eclipse.jdt.core
-559496682.index
-3678006507.index
-3059478755.index
