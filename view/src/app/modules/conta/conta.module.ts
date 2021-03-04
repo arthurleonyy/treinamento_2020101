@@ -8,13 +8,15 @@ import { ContaComponent } from './pages/conta.component';
 import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
 import { OperacoesComponent } from './pages/operacoes/operacoes.component';
 import { TransferirComponent } from './pages/transferir/transferir.component';
+import { ConsultarSaldoComponent } from './pages/consultar-saldo/consultar-saldo.component';
 
 @NgModule({
   declarations: [
     ContaComponent,
     OperacoesComponent,
     DepositarSacarComponent,
-    TransferirComponent
+    TransferirComponent,
+    ConsultarSaldoComponent
   ],
   imports: [
     CommonModule,

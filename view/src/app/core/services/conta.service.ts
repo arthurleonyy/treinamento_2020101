@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { ContaDTO } from "../dtos/conta.dto";
+import { TransferenciaDTO } from "../dtos/transferencia.dto";
 import { ApiService } from "./api.service";
 
 @Injectable({
@@ -20,8 +21,12 @@ export class ContaService {
         return this.apiService.post(`${this.controller}/saque`, conta);
     }
 
-    transferir(conta: ContaDTO): Observable<any> {
-        return this.apiService.post(`${this.controller}/transferir`, conta);
+    transferir(transferencia: TransferenciaDTO): Observable<any> {
+        return this.apiService.post(`${this.controller}/transferir`, transferencia);
+    }
+
+    saldo(conta: ContaDTO): Observable<any> {
+        return this.apiService.get(`${this.controller}/consultar-saldo/${conta.agencia}/${conta.numeroConta}`);
     }
 
 }

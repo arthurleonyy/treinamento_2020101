@@ -1,9 +1,12 @@
+import { SweetalertCustom } from './../../../../shared/utils/sweetalert-custom';
+import { TransferenciaDTO } from './../../../../core/dtos/transferencia.dto';
 import { ContaService } from 'src/app/core/services/conta.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormBase } from 'src/app/core/classes/form-base';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ValidatorsCustom } from 'src/app/shared/utils/validators-custom';
+import { type } from 'os';
 
 @Component({
   selector: 'app-transferir',
@@ -14,7 +17,7 @@ export class TransferirComponent extends FormBase implements OnInit {
 
   constructor(
     private FormBuilder: FormBuilder,
-    private ContaService: ContaService,
+    private contaService: ContaService,
     private router: Router
   ) {
     super();
@@ -23,7 +26,6 @@ export class TransferirComponent extends FormBase implements OnInit {
   ngOnInit() {
     this.validateMensageError();
     this.createFormGroup();
-
   }
 
   createFormGroup() {
@@ -53,16 +55,25 @@ export class TransferirComponent extends FormBase implements OnInit {
       valor: {
         required: 'Valor obrigatório.',
         lessThanOne: 'Valor informado deve ser maior que zero.'
-      }
+      },
     });
 
 //    onSubmit() {
 //      if (this.form.valid) {
-
+//        const transfarencia = new TransferenciaDTO(this.form.value);
+//       this.contaService.transferir(transfarencia).subscribe(
+//          response => {
+//            SweetalertCustom.showAlertTimer('Transfarencia executada com sucesso ', {type: 'success'}).then (
+//              result => {
+//                if (result.dismiss) {
+//                  this.router.navigate(['conta/operacoes']);
+//                }
+//              }
+//            );
+//          }
+//
+//        );
 //     }
-//    }
-
+    }
   }
-
-
-}
+//}

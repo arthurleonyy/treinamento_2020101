@@ -66,7 +66,7 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
       valor: {
         required: 'Valor obrigatório.',
         lessThanOne: 'Valor informado deve ser maior que zero.'
-      }
+      },
     });
   }
 
