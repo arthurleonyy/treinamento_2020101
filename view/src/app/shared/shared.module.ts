@@ -67,7 +67,7 @@ import { HttpErrorInterceptor } from './interceptor/http-error.interceptor';
   ]
 })
 export class SharedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
       providers: [],
