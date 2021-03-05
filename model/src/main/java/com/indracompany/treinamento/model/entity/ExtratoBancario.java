@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,9 +21,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "extratos")
 @EqualsAndHashCode(callSuper = true)
 public class ExtratoBancario extends GenericEntity<Long>{
-
-	private static final long serialVersionUID = 1L;
-
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

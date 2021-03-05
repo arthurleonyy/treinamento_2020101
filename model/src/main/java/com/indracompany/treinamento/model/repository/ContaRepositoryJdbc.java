@@ -16,22 +16,24 @@ public class ContaRepositoryJdbc {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
-	public List<ContaBancaria> buscarContas(String agencia, String numeroConta) {
+	
+	public List<ContaBancaria> buscarContas(String agencia, String numeroConta){
 		StringBuilder sql = new StringBuilder(" select c.* from Contas c where 1=1 ");
-
+		
 		if (agencia != null && !agencia.isBlank()) {
-			sql.append(" and c.agencia like '%" + agencia + "%'");
+			sql.append(" and c.agencia like '%"+agencia+"%'");
 		}
-
+		
 		if (numeroConta != null && !numeroConta.isBlank()) {
-			sql.append(" and c.numero like '%" + numeroConta + "%'");
+			sql.append(" and c.numero like '%" +numeroConta +"%'");
 		}
-
+		
+		
 		return jdbcTemplate.query(sql.toString(), new ContaRowMapper());
 	}
-
-	private class ContaRowMapper implements RowMapper<ContaBancaria> {
+	
+	
+	private class ContaRowMapper implements RowMapper<ContaBancaria>{
 
 		@Override
 		public ContaBancaria mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -41,6 +43,7 @@ public class ContaRepositoryJdbc {
 			conta.setNumero(rs.getString("numero"));
 			return conta;
 		}
-
+		
+		
 	}
 }

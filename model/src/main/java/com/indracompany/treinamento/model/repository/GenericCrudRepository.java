@@ -16,4 +16,6 @@ import com.indracompany.treinamento.model.entity.GenericEntity;
 @NoRepositoryBean
 public interface GenericCrudRepository<T extends GenericEntity<I>, I> extends JpaRepository<T, I> {
 
+
+
 }

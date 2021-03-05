@@ -17,24 +17,24 @@ import lombok.EqualsAndHashCode;
 @Table(name = "contas")
 @EqualsAndHashCode(callSuper = true)
 public class ContaBancaria extends GenericEntity<Long> {
-
-	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "fk_cliente_id", nullable = false)
 	private Cliente cliente;
-
+	
 	@Column(name = "agencia", nullable = false, length = 4)
 	private String agencia;
-
+	
 	@Column(name = "numero", nullable = false, length = 6)
 	private String numero;
-
+	
 	@Column(name = "saldo", nullable = false)
 	private double saldo;
+
 	
+
 }

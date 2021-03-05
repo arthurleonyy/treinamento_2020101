@@ -101,6 +101,7 @@ public abstract class GenericCrudRest<T extends GenericEntity<I>, I, S extends G
     return entity == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(entity, HttpStatus.OK);
   }
 
+
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public @ResponseBody ResponseEntity<List<T>> listar() throws AplicacaoException {
 

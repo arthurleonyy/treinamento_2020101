@@ -18,7 +18,7 @@ import com.indracompany.treinamento.model.dto.ConsultaExtratoDTO;
 import com.indracompany.treinamento.model.dto.DepositoDTO;
 import com.indracompany.treinamento.model.dto.ExtratoBancarioDTO;
 import com.indracompany.treinamento.model.dto.SaqueDTO;
-import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
+import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
 import com.indracompany.treinamento.model.service.ExtratoBancarioService;
@@ -55,7 +55,7 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	
 	@ApiOperation(value = "Realiza um transferencia bancaria", nickname = "transferencia")
 	@RequestMapping(value = "/transferencia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> transferir(final @ApiParam("JSON com dados necessarios para realizar uma transferencia ") @RequestBody TransferenciaBancariaDTO dto){
+	public ResponseEntity<Void> transferir(final @ApiParam("JSON com dados necessarios para realizar uma transferencia ") @RequestBody TransferenciaBancarioDTO dto){
 		getService().transferir(dto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}	
