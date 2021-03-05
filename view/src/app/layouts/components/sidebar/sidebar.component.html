@@ -13,7 +13,7 @@
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        
+        <a href="javascript:void(0)" class="d-block">Alexander Pierce</a>
       </div>
     </div> -->
 
@@ -25,12 +25,10 @@
             <i class="nav-icon fas fa-home"></i>
             <p> &nbsp; Início </p>
           </a>
-        </li>          
-                        
-          
-         <li class="nav-item has-treeview">
-          <a [routerLink]="['/conta']" class="nav-link">
-            <i class="nav-icon fas fas fa-wallet fa-do"></i>
+        </li>
+        <li class="nav-item has-treeview">
+          <a [routerLink]="['/conta/operacoes']"  class="nav-link">
+            <i class="nav-icon fas fa-dollar-sign fa-do"></i>
             <p>
               Conta
               <i class="right fas fa-angle-left"></i>
@@ -39,15 +37,12 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a [routerLink]="['/conta/operacoes']" class="nav-link">
-                <i class="fa fa-exchange-alt nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                 <p>Operações</p>
               </a>
             </li>
-                       
           </ul>
-
-          
-        </li> 
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
-import { from } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -15,8 +14,6 @@ import { SidebarComponent } from './layouts/components/sidebar/sidebar.component
 import { PaginaNaoEncontradaComponent } from './layouts/pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { PaginaSemAutorizacaoComponent } from './layouts/pages/pagina-sem-autorizacao/pagina-sem-autorizacao.component';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -26,9 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     SidebarComponent,
     PaginaNaoEncontradaComponent,
-    PaginaSemAutorizacaoComponent,
-    
-    ],
+    PaginaSemAutorizacaoComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,10 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
-    NgbModule,
-    HttpClientModule,
-   
-   
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

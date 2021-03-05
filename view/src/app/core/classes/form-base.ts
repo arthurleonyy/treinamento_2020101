@@ -1,8 +1,7 @@
-import { AfterViewInit, ElementRef, OnInit, ViewChildren, Directive } from '@angular/core';
+import { AfterViewInit, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { FormControlName, FormGroup } from '@angular/forms';
 import { fromEvent, merge, Observable } from 'rxjs';
 import { GenericValidatorForm } from 'src/app/shared/utils/generic-validator-form';
-
 
 export class FormBase implements OnInit, AfterViewInit {
 

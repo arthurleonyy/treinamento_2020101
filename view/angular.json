@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,7 +28,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./src/assets/scss/main.scss",
               "./node_modules/admin-lte/dist/css/adminlte.min.css",
               "./node_modules/admin-lte/plugins/fontawesome-free/css/all.css",
@@ -111,7 +107,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -143,7 +138,6 @@
           }
         }
       }
-    }
-  },
+    }},
   "defaultProject": "treinamento-angular"
 }

@@ -12,17 +12,13 @@ const routes: Routes = [
     loadChildren: './modules/conta/conta.module#ContaModule'
   },
   {
-    path: 'conta/operacoes',
-    loadChildren: './modules/conta/conta.module#ContaModule'
-  },
-  {
     path: '**',
     component: PaginaNaoEncontradaComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
