@@ -46,7 +46,8 @@ export class VerificarSaldoComponent extends FormBase implements OnInit {
   }
 
   onSubmit() {
-    this.saldo(this.form.value.agencia,this.form.value.conta);
+    if(this.form.valid)
+      this.saldo(this.form.value.agencia,this.form.value.conta);
   }
   saldo(agencia:string, conta:string) {
     this.contaService.saldo(agencia,conta).subscribe(response => {

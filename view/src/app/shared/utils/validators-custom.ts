@@ -237,4 +237,41 @@ export class ValidatorsCustom {
         }
     }
 
+    static SameAccount(form: FormGroup) {
+        const agenciaOrigem = form.get('agenciaOrigem').value;
+        const numeroContaOrigem = form.get('numeroContaOrigem').value;
+        const agenciaDestino = form.get('agenciaDestino').value;
+        const numeroContaDestino = form.get('numeroContaDestino').value;
+
+        if (!agenciaOrigem || !numeroContaOrigem || !agenciaDestino || !numeroContaDestino) {
+            return null;
+        }
+
+        if (agenciaOrigem.trim() === agenciaDestino.trim() && numeroContaOrigem.trim() === numeroContaDestino.trim()) {
+            form.get('agenciaOrigem').setErrors({ sameAccount: true });
+            form.get('numeroContaOrigem').setErrors({ sameAccount: true });
+            form.get('agenciaDestino').setErrors({ sameAccount: true });
+            form.get('numeroContaDestino').setErrors({ sameAccount: true });
+            return null;
+        }
+        else {
+            form.get('agenciaOrigem').setErrors({ sameAccount: null });
+            form.get('numeroContaOrigem').setErrors({ sameAccount: null });
+            form.get('agenciaDestino').setErrors({ sameAccount: null });
+            form.get('numeroContaDestino').setErrors({ sameAccount: null });
+            // console.log("Entrou aqui")
+            // delete form.get('agenciaOrigem').errors['sameAccount'];
+            // delete form.get('numeroContaOrigem').errors['sameAccount'];
+            // delete form.get('agenciaDestino').errors['sameAccount'];
+            // delete form.get('numeroContaDestino').errors['sameAccount'];
+        }
+
+        form.get('agenciaOrigem').updateValueAndValidity({ onlySelf: true });
+        form.get('numeroContaOrigem').updateValueAndValidity({ onlySelf: true });
+        form.get('agenciaDestino').updateValueAndValidity({ onlySelf: true });
+        form.get('numeroContaDestino').updateValueAndValidity({ onlySelf: true });
+
+        return null;
+    }
+
 }

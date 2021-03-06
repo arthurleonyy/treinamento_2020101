@@ -30,16 +30,20 @@ export class TransferirComponent extends FormBase implements OnInit {
   validateMensageError() {
     this.createValidateFieldMessage({
       agenciaOrigem: {
-        required: 'Agência obrigatória.'
+        required: 'Agência obrigatória.',
+        sameAccount: "Você não pode transferir para uma mesma conta."
       },
       numeroContaOrigem: {
-        required: 'Número da conta obrigatório.'
+        required: 'Número da conta obrigatório.',
+        sameAccount: "Você não pode transferir para uma mesma conta."
       },
       agenciaDestino: {
-        required: 'Agência obrigatória.'
+        required: 'Agência obrigatória.',
+        sameAccount: "Você não pode transferir para uma mesma conta."
       },
       numeroContaDestino: {
-        required: 'Número da conta obrigatório.'
+        required: 'Número da conta obrigatório.',
+        sameAccount: "Você não pode transferir para uma mesma conta."
       },
       valor: {
         required: 'Valor obrigatório.',
@@ -55,15 +59,15 @@ export class TransferirComponent extends FormBase implements OnInit {
       agenciaDestino:      ['', [Validators.required]],
       numeroContaDestino:  ['', [Validators.required]],
       valor:        [0, [Validators.required, ValidatorsCustom.lessThanOne]],
+    }, {
+      validators: [ValidatorsCustom.SameAccount]
     });
   }
 
 
   
   onSubmit() {
-    if(this.form.value.agenciaOrigem === this.form.value.agenciaDestino && this.form.value.numeroContaOrigem === this.form.value.numeroContaDestino) {
-      SweetalertCustom.showAlertConfirm('Não é possível realizar transferência para uma mesma conta.', {type: 'error'})
-    } else {
+    if(this.form.valid) {
       this.transferir(new TransferenciaDTO(this.form.value))
     }
     
