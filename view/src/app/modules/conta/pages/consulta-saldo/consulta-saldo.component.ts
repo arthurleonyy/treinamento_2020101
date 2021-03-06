@@ -28,6 +28,8 @@ export class ConsultaSaldoComponent extends FormBase implements OnInit {
   ngOnInit() {
     this.createFormGroup();
     this.validateMensageError();
+    this.onSubmit();
+       
   }
 
   createFormGroup() {

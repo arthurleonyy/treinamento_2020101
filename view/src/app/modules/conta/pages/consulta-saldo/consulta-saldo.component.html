@@ -35,7 +35,7 @@
             <i class="fa fa-search"></i>
             Pesquisar
           </button>
-          <a [routerLink]="['/conta/operacoes']" class="btn btn-secondary float-right mr-1"> 
+          <a  class="btn btn-secondary float-right mr-1" [routerLink]="['/conta/operacoes']"> 
             <i class="fa fa-times"></i>
             Cancelar
           </a>
@@ -46,7 +46,7 @@
 
 
 
-<button type="button" id="buttonModal" class="btn btn-primary invisible " data-toggle="modal" data-target="#modalSaldo">
+<button  type="button" id="buttonModal" class="btn btn-primary invisible " data-toggle="modal" data-target="#modalSaldo">
   Launch demo modal
 </button>
 
@@ -59,9 +59,9 @@
       
       </div>
       <div class="modal-body">
-        <p class="info-box-text"><strong>Agência:</strong> {{conta.agencia}}</p>
-          <p class="info-box-text"><strong>Conta:</strong> {{conta.numeroConta}}</p>
-          <p class="info-box-text"><strong>Saldo:</strong> {{conta.valor | currency:'BRL'}}</p>
+        <p class="info-box-text" *ngIf="conta"><strong>Agência:</strong> {{conta.agencia}}</p>
+          <p class="info-box-text" *ngIf="conta"><strong>Conta:</strong> {{conta.numeroConta}}</p>
+          <p class="info-box-text" *ngIf="conta"><strong>Saldo:</strong> {{conta.valor | currency:'BRL'}}</p>
       </div>
       <div class="modal-footer">
           <button [routerLink]="['/conta/operacoes']" data-dismiss="modal" type="button" class="btn btn-secondary " >Sair</button>
