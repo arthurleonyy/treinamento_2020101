@@ -9,7 +9,7 @@ export class ContaComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     
   }
 

@@ -1,10 +1,11 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router"
-import { ConsultaSaldoComponent } from "./pages/consulta-de-saldo/consulta-de-saldo.component";
-import { ContaComponent } from "./pages/conta.component";
-import { DepositarSacarComponent } from "./pages/depositar-sacar/depositar-sacar.component";
-import { OperacoesComponent } from "./pages/operacoes/operacoes.component";
-import { TransferenciaComponent } from "./pages/transferencia/transferencia.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ConsultarContasComponent } from './pages/consultar-contas/consultar-contas.component';
+import { ConsultarSaldoComponent } from './pages/consultar-saldo/consultar-saldo.component';
+import { ContaComponent } from './pages/conta.component';
+import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
+import { OperacoesComponent } from './pages/operacoes/operacoes.component';
+import { TransferirComponent } from './pages/transferir/transferir.component';
 
 const routes: Routes = [
   {
@@ -29,15 +30,18 @@ const routes: Routes = [
       },
       {
         path: 'transferir',
-        component: TransferenciaComponent
+        component: TransferirComponent
       },
       {
         path: 'consultar-saldo',
-        component: ConsultaSaldoComponent
-      }
+        component: ConsultarSaldoComponent
+      },
+      {
+        path: 'consultar-contas',
+        component: ConsultarContasComponent
+      },
     ]
   },
-
 ];
 
 @NgModule({
