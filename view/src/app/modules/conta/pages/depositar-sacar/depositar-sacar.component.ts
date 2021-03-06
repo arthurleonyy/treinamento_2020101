@@ -24,16 +24,10 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
     super();
   }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.getNameScreen();
     this.validateMensageError();
     this.createFormGroup();
-
-    this.contaService.listaConta().subscribe(
-      response => {
-        console.log(response)
-      }
-    );
   }
 
   private getNameScreen() {
@@ -58,14 +52,14 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
   validateMensageError() {
     this.createValidateFieldMessage({
       agencia: {
-        required: 'Agência obrigatória.'
+        required: 'Numero de agencia necessária'
       },
       numeroConta: {
-        required: 'Número da conta obrigatório.'
+        required: 'Número da conta necessário.'
       },
       valor: {
-        required: 'Valor obrigatório.',
-        lessThanOne: 'Valor informado deve ser maior que zero.'
+        required: 'Quantia necessária.',
+        lessThanOne: 'Quantia informada deve ser maior que zero.'
       }
     });
   }
@@ -73,6 +67,7 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       let conta = new ContaDTO(this.form.value);
+      
       if (this.nameScreen === 'Depositar') {
         this.depositar(conta);
       } else if (this.nameScreen === 'Sacar') {

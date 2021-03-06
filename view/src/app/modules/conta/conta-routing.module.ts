@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ContaComponent } from './pages/conta.component';
-import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar.component';
-import { OperacoesComponent } from './pages/operacoes/operacoes.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router"
+import { ConsultaSaldoComponent } from "./pages/consulta-de-saldo/consulta-de-saldo.component";
+import { ContaComponent } from "./pages/conta.component";
+import { DepositarSacarComponent } from "./pages/depositar-sacar/depositar-sacar.component";
+import { OperacoesComponent } from "./pages/operacoes/operacoes.component";
+import { TransferenciaComponent } from "./pages/transferencia/transferencia.component";
 
 const routes: Routes = [
   {
@@ -25,8 +27,17 @@ const routes: Routes = [
         path: 'sacar',
         component: DepositarSacarComponent
       },
+      {
+        path: 'transferir',
+        component: TransferenciaComponent
+      },
+      {
+        path: 'consultar-saldo',
+        component: ConsultaSaldoComponent
+      }
     ]
   },
+
 ];
 
 @NgModule({
