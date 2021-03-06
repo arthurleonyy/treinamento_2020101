@@ -1,24 +1,23 @@
-import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormBase } from 'src/app/core/classes/form-base';
-import { ConsultarDTO } from 'src/app/core/dtos/consultar.dto';
+import { ExtratoDTO } from 'src/app/core/dtos/extrato.dto';
 import { ContaService } from 'src/app/core/services/conta.service';
 import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
 
 @Component({
-  selector: 'app-consultar-saldo',
-  templateUrl: './consultar-saldo.component.html',
-  styleUrls: ['./consultar-saldo.component.scss']
+  selector: 'app-extrato',
+  templateUrl: './extrato.component.html',
+  styleUrls: ['./extrato.component.scss']
 })
-export class ConsultarSaldoComponent extends FormBase implements OnInit {
+
+export class ExtratoComponent extends FormBase implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
     private contaService: ContaService,
-    public router: Router,
-   
+    public router: Router
   ) {
     super();
   }
@@ -53,18 +52,20 @@ export class ConsultarSaldoComponent extends FormBase implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      let conta = new ConsultarDTO(this.form.value);
+      let conta = new ExtratoDTO(this.form.value);
     
-        this.consultar(conta);      
+        this.extrato(conta);      
     }
   }
 
-  private consultar(conta: ConsultarDTO) {
+  private extrato(conta: ExtratoDTO) {
     
-    
-    this.contaService.consultar(conta).subscribe(response => {
+    this.contaService.extrato(conta).subscribe(response => {
 
-      SweetalertCustom.showAlertConfirm('Operação realizada com sucesso.', {type: 'sucess'}, "ok", `Seu saldo é ${response.body}`).then(
+      var ext = JSON.stringify(response);
+      
+
+      SweetalertCustom.showAlertConfirm('Operação realizada com sucesso.', {type: 'sucess'}, "ok", `Extrato: \n ${ext}`).then(
         result => {
           if (result.dismiss) {
             this.router.navigate(['conta/operacoes']);

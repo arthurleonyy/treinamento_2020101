@@ -23,13 +23,13 @@ import com.indracompany.treinamento.model.service.ExtratoService;
 public class ExtratoRest extends GenericCrudRest<Extrato, Long, ExtratoService>{
 	
 	
-	@RequestMapping(value = "/gerar-gxtrato/{agencia}/{conta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<List<Extrato>> gerarExtrato(final @PathVariable String agencia, final @PathVariable String conta){
-		List<Extrato> acoes = getService().gerarExtrato(agencia, conta);
+	@RequestMapping(value = "/gerar-extrato/{agencia}/{numeroConta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<Extrato>> gerarExtrato(final @PathVariable String agencia, final @PathVariable String numeroConta){
+		List<Extrato> acoes = getService().gerarExtrato(agencia, numeroConta);
 		return new ResponseEntity<>(acoes, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/gerar-gxtrato-data/{agencia}/{conta}/{data1}/{data2}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/gerar-extrato-data/{agencia}/{conta}/{data1}/{data2}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public  @ResponseBody ResponseEntity<List<Extrato>> gerarExtratoData(final ExtratoDataDTO dto){
 		List<Extrato> acoes = getService().gerarExtratoData(dto.getAgencia(), dto.getConta(), dto.getData1(), dto.getData2());
 		return new ResponseEntity<>(acoes, HttpStatus.OK);

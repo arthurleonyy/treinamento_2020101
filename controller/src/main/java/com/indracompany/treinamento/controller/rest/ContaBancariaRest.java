@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.indracompany.treinamento.model.dto.ConsultarDTO;
 import com.indracompany.treinamento.model.dto.DepositoDTO;
 import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancarioDTO;
@@ -30,8 +29,8 @@ import io.swagger.annotations.ApiParam;
 public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, ContaBancariaService>{
 
 	@RequestMapping(value = "/consultar-saldo/{agencia}/{numConta}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public @ResponseBody ResponseEntity<Double> consultarSaldo(final ConsultarDTO dto){
-		double saldo = getService().consultarSaldo(dto.getAgencia(), dto.getNumeroConta());
+	public @ResponseBody ResponseEntity<Double> consultarSaldo(final @PathVariable String agencia, final @PathVariable String numConta){
+		double saldo = getService().consultarSaldo(agencia, numConta);
 		return new ResponseEntity<>(saldo, HttpStatus.OK);
 	}
 

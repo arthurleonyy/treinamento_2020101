@@ -36,7 +36,7 @@ export class SweetalertCustom {
         titleAlert: string,
         typeAlert: any,
         confirmButtonTxt: string = 'Ok',
-        textAlert?: string) {
+        textAlert?: any) {
         return Swal.fire({
             title: titleAlert,
             html: textAlert,

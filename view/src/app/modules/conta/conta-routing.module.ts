@@ -5,6 +5,7 @@ import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar
 import { OperacoesComponent } from './pages/operacoes/operacoes.component';
 import { ConsultarSaldoComponent } from './pages/consultar-saldo/consultar-saldo.component'
 import { TransferirComponent} from './pages/transferir/transferir.component'
+import { ExtratoComponent } from './pages/extrato/extrato.component'
 
 const routes: Routes = [
   {
@@ -34,7 +35,12 @@ const routes: Routes = [
       {
         path: 'consultar-saldo',
         component: ConsultarSaldoComponent
+      },
+      {
+        path: 'gerar-extrato',
+        component: ExtratoComponent
       }
+
     ]
   },
 ];
