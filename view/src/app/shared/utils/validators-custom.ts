@@ -259,11 +259,6 @@ export class ValidatorsCustom {
             form.get('numeroContaOrigem').setErrors({ sameAccount: null });
             form.get('agenciaDestino').setErrors({ sameAccount: null });
             form.get('numeroContaDestino').setErrors({ sameAccount: null });
-            // console.log("Entrou aqui")
-            // delete form.get('agenciaOrigem').errors['sameAccount'];
-            // delete form.get('numeroContaOrigem').errors['sameAccount'];
-            // delete form.get('agenciaDestino').errors['sameAccount'];
-            // delete form.get('numeroContaDestino').errors['sameAccount'];
         }
 
         form.get('agenciaOrigem').updateValueAndValidity({ onlySelf: true });

@@ -30,7 +30,7 @@
     </div>
     <div class="saldo-info" *ngIf="thereIsSaldoInfo">
         <h5 [ngClass]="{green: saldoValue > 0}">
-            Saldo: {{saldoValue}}
+            Saldo: {{saldoValue | currency}}
         </h5>
     </div>
     <div class="card-footer">
@@ -38,11 +38,11 @@
         <div class="col-12">
           <button type="submit" class="btn btn-danger float-right" [disabled]="form.invalid" (click)="onSubmit()">
             <i class="fa fa-check"></i>
-            Salvar
+            Consultar
           </button>
           <a class="btn btn-secondary float-right mr-1" [routerLink]="[ '/conta/operacoes']">
             <i class="fa fa-times"></i>
-            Cancelar
+            Voltar
           </a>
         </div>
       </div>
