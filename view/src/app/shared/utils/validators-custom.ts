@@ -17,7 +17,7 @@ export class ValidatorsCustom {
      * Verifica se o CPF é valido
      * @param control Campo a ser validado
      */
-    static validCpf(control: AbstractControl) {
+    static validateCpf(control: AbstractControl) {
 
         let cpf = control.value;
         if (!cpf) { return null; }
@@ -235,6 +235,83 @@ export class ValidatorsCustom {
         } else {
             return null;
         }
+    }
+
+    static camposIguais(control1: string, control2: string) {
+        return (group: AbstractControl): { [key: string]: boolean } | null => {
+            const campo1 = group.get(control1).value;
+            const campo2 = group.get(control2).value;
+
+            if (campo1 && campo2) {
+                if (campo1 === campo2) {
+                    group.get(control1).setErrors({ camposIguais: true });
+                    group.get(control2).setErrors({ camposIguais: true });
+                } else {
+                    if (group.get(control1).errors && group.get(control1).errors.camposIguais) {
+                        delete group.get(control1).errors.camposIguais;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                    if (group.get(control2).errors && group.get(control2).errors.camposIguais) {
+                        delete group.get(control2).errors.camposIguais;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                }
+            }
+            return null;
+        };
+    }
+
+    static maiorQue(control1: string, control2: string) {
+        return (group: AbstractControl): { [key: string]: boolean } | null => {
+            const campo1 = group.get(control1).value;
+            const campo2 = group.get(control2).value;
+
+            if (campo1 && campo2) {
+                if (campo1 > campo2) {
+                    group.get(control1).setErrors({ maiorQue: true });
+                    group.get(control2).setErrors({ camposmaiorQueIguais: true });
+                } else {
+                    if (group.get(control1).errors && group.get(control1).errors.maiorQue) {
+                        delete group.get(control1).errors.maiorQue;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                    if (group.get(control2).errors && group.get(control2).errors.maiorQue) {
+                        delete group.get(control2).errors.maiorQue;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                }
+            }
+            return null;
+        };
+    }
+    static menorQue(control1: string, control2: string) {
+        return (group: AbstractControl): { [key: string]: boolean } | null => {
+            const campo1 = group.get(control1).value;
+            const campo2 = group.get(control2).value;
+
+            if (campo1 && campo2) {
+                if (campo1 < campo2) {
+                    group.get(control1).setErrors({ menorQue: true });
+                    group.get(control2).setErrors({ menorQue: true });
+                } else {
+                    if (group.get(control1).errors && group.get(control1).errors.menorQue) {
+                        delete group.get(control1).errors.menorQue;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                    if (group.get(control2).errors && group.get(control2).errors.menorQue) {
+                        delete group.get(control2).errors.menorQue;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                }
+            }
+            return null;
+        };
     }
 
 }

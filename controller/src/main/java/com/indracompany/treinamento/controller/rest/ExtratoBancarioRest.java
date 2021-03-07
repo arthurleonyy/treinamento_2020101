@@ -23,7 +23,7 @@ import com.indracompany.treinamento.model.service.ExtratoBancarioService;
 @RequestMapping("rest/extrato")
 public class ExtratoBancarioRest extends GenericCrudRest<ExtratoBancario, Long, ExtratoBancarioService> {
 
-	@RequestMapping(value = "/consultar_extrato/{dto}", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = "/consultar_extrato/", method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody ResponseEntity<List<ExtratoBancario>> exibirExtratoDaContaEntreDatas(
 			final ExtratoBancarioDTO dto) {

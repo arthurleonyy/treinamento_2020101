@@ -9,6 +9,9 @@ import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar
 import { OperacoesComponent } from './pages/operacoes/operacoes.component';
 import { TransferenciaComponent } from './pages/transferencia/transferencia.component';
 import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { ConsultarContasComponent } from './pages/consultar-contas/consultar-contas.component';
+import { ExtratoComponent } from './pages/extrato/extrato.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.co
     OperacoesComponent,
     DepositarSacarComponent,
     TransferenciaComponent,
-    ConsultaSaldoComponent
+    ConsultaSaldoComponent,
+    ConsultarContasComponent,
+    ExtratoComponent
+
   ],
   imports: [
     CommonModule,
@@ -25,6 +31,8 @@ import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.co
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+    
   ]
 })
 export class ContaModule { }

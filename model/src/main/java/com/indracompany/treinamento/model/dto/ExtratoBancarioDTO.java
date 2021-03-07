@@ -16,9 +16,9 @@ public class ExtratoBancarioDTO extends GenericDTO{
 	
 	private String agencia;
 	private String conta;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataInicio;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataFim;
 	
 	

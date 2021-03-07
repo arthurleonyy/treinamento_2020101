@@ -32,20 +32,30 @@
       </div>
       <div class="col-md-6">
         <a class="info-box" [routerLink]="['/conta/consultarsaldo']">
-          <span class="info-box-icon bg-default elevation-1"><i class="fas fa-search-dollar"></i></span>
+          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-search-dollar"></i></span>
           <div class="info-box-content mt-2">
             <h5 class="text-dark">Consultar Saldo</h5>
           </div>
         </a>
       </div>
-      <!-- <div class="col-md-6">
-        <a class="info-box">
+      <div class="col-md-6">
+        <a class="info-box"  [routerLink]="['/conta/consultarcontas']">
           <span class="info-box-icon bg-default elevation-1"><i class="fas fa-search-dollar"></i></span>
           <div class="info-box-content mt-2">
             <h5 class="text-dark">Consultar Contas</h5>
           </div>
         </a>
-      </div> -->
+      </div>
+      <div class="col-md-6">
+        <a class="info-box"  [routerLink]="['/conta/consultarextrato']">
+          <span class="info-box-icon bg-gray-light elevation-1"><i class="fas fa-receipt"></i></span>
+          <div class="info-box-content mt-2">
+            <h5 class="text-dark">Consultar Extrato
+            </h5>
+          </div>
+        </a>
+      </div>
+      
     </div>     
   </div>
 </div>

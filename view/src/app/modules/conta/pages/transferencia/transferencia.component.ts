@@ -30,30 +30,31 @@ export class TransferenciaComponent extends FormBase implements OnInit {
 
   createFormGroup() {
     this.form = this.formBuilder.group({
-      agenciaOrigem:      ['', [Validators.required]],
-      numeroContaOrigem:  ['', [Validators.required]],
-      agenciaDestino:      ['', [Validators.required]],
-      numeroContaDestino:  ['', [Validators.required]],
-      valor:        [0, [Validators.required, ValidatorsCustom.lessThanOne]],
+      agenciaOrigem: ['', [Validators.required]],
+      numeroContaOrigem: ['', [Validators.required]],
+      agenciaDestino: ['', [Validators.required]],
+      numeroContaDestino: ['', [Validators.required]],
+      valor: [0, [Validators.required, ValidatorsCustom.lessThanOne]],
+    }, {
+      validator: [ValidatorsCustom.camposIguais('numeroContaOrigem', 'numeroContaDestino')]
     });
   }
 
-  /**
-   * Seta a mensagem de validação que irá ser exibida ao usuário
-   */
-  validateMensageError() {
+   validateMensageError() {
     this.createValidateFieldMessage({
       agenciaOrigem: {
         required: 'Agência de origem obrigatória.'
       },
       numeroContaOrigem: {
-        required: 'Número da conta de origem obrigatório.'
+        required: 'Conta de origem obrigatória.',
+        camposIguais: 'Conta de origem não pode ser igual a conta de destino.'
       },
       agenciaDestino: {
         required: 'Agência de destino obrigatória.'
       },
       numeroContaDestino: {
-        required: 'Número da conta de destino obrigatório.'
+        required: 'Conta de destino obrigatória.',
+        camposIguais: 'Conta de origem não pode ser igual a conta de destino.'
       },
       valor: {
         required: 'Valor obrigatório.',
