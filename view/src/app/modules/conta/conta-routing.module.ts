@@ -42,7 +42,7 @@ const routes: Routes = [
         component: ConsultarContasComponent
       },
       {
-        path: 'consultarextrato',
+        path: 'extrato',
         component: ExtratoComponent
       },
     ]
