@@ -27,5 +27,8 @@ export class ContaService {
     saldo(agencia:string,conta:string){
         return this.apiService.get(`${this.controller}/consultar-saldo/${agencia}/${conta}`)
     }
+    getContas(cpf: string): Observable<any> {
+        return this.apiService.get(`${this.controller}/consultar-contas-cliente/${cpf}`);
+    }
 
 }

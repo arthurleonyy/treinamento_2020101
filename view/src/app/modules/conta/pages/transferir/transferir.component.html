@@ -12,7 +12,7 @@
               <label class="form-required">
                 <small [ngClass]="{'text-red': displayMessage.agenciaOrigem}">Agência de Origem</small>
               </label>
-              <input type="text" class="form-control" formControlName="agenciaOrigem" [ngClass]="{'is-invalid': displayMessage.agenciaOrigem}">
+              <input type="text" class="form-control" formControlName="agenciaOrigem" [ngClass]="{'is-invalid': displayMessage.agenciaOrigem}" mask="000-0">
               <small class="form-text text-red" [innerHTML]="displayMessage.agenciaOrigem"></small>
             </div>
           </div>
@@ -21,7 +21,7 @@
               <label class="form-required">
                 <small [ngClass]="{'text-red': displayMessage.numeroContaOrigem}">Número da conta de Origem</small>
               </label>
-              <input type="text" class="form-control" formControlName="numeroContaOrigem" [ngClass]="{'is-invalid': displayMessage.numeroContaOrigem}">
+              <input type="text" class="form-control" formControlName="numeroContaOrigem" [ngClass]="{'is-invalid': displayMessage.numeroContaOrigem}" mask="00.000-0">
               <small class="form-text text-red" [innerHTML]="displayMessage.numeroContaOrigem"></small>
             </div>
           </div>
@@ -32,7 +32,7 @@
                 <label class="form-required">
                   <small [ngClass]="{'text-red': displayMessage.agenciaDestino}">Agência de Destino</small>
                 </label>
-                <input type="text" class="form-control" formControlName="agenciaDestino" [ngClass]="{'is-invalid': displayMessage.agenciaDestino}">
+                <input type="text" class="form-control" formControlName="agenciaDestino" [ngClass]="{'is-invalid': displayMessage.agenciaDestino}" mask="000-0">
                 <small class="form-text text-red" [innerHTML]="displayMessage.agenciaDestino"></small>
               </div>
             </div>
@@ -41,7 +41,7 @@
                 <label class="form-required">
                   <small [ngClass]="{'text-red': displayMessage.numeroContaDestino}">Número da conta de Destino</small>
                 </label>
-                <input type="text" class="form-control" formControlName="numeroContaDestino" [ngClass]="{'is-invalid': displayMessage.numeroContaDestino}">
+                <input type="text" class="form-control" formControlName="numeroContaDestino" [ngClass]="{'is-invalid': displayMessage.numeroContaDestino}" mask="00.000-0">
                 <small class="form-text text-red" [innerHTML]="displayMessage.numeroContaDestino"></small>
               </div>
             </div>

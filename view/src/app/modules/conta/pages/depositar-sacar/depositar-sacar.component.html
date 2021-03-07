@@ -12,7 +12,7 @@
             <label class="form-required">
               <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
             </label>
-            <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
+            <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}" mask="000-0">
             <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
           </div>
         </div>
@@ -21,7 +21,7 @@
             <label class="form-required">
               <small [ngClass]="{'text-red': displayMessage.conta}">Número da conta</small>
             </label>
-            <input type="text" class="form-control" formControlName="conta" [ngClass]="{'is-invalid': displayMessage.conta}">
+            <input type="text" class="form-control" formControlName="conta" [ngClass]="{'is-invalid': displayMessage.conta}" mask="00.000-0">
             <small class="form-text text-red" [innerHTML]="displayMessage.conta"></small>
           </div>
         </div>

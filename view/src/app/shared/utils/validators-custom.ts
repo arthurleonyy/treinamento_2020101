@@ -17,8 +17,7 @@ export class ValidatorsCustom {
      * Verifica se o CPF é valido
      * @param control Campo a ser validado
      */
-    static validCpf(control: AbstractControl) {
-
+    static validateCpf(control: AbstractControl) {
         let cpf = control.value;
         if (!cpf) { return null; }
         cpf = cpf.toString().trim();

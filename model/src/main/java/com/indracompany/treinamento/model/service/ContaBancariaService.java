@@ -26,22 +26,35 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	public List<ContaBancaria> obterContas(String cpf) {
 		Cliente cli = clienteService.buscarClientePorCpf(cpf);
+		if(cli == null) 
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CLIENTE_INEXISTENTE);
+		
 		List<ContaBancaria> contasDoCliente = repository.buscarContasDoClienteSql(cli.getId());
+		
+		if(contasDoCliente.isEmpty())
+			throw new AplicacaoException(ExceptionValidacoes.ALERTA_CPF_SEM_CONTA);
+		
 		return contasDoCliente;
 	}
 	
 	
 	@Transactional(rollbackFor = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
+		if(dto.getAgenciaOrigem().equals(dto.getAgenciaDestino()) && dto.getNumeroContaOrigem().equals(dto.getNumeroContaDestino()))
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTAS_IDENTICAS);
+		
 		ContaBancaria contaOrigem;
+		
 		try {
 			contaOrigem = consultaConta(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem());
 		}catch (AplicacaoException e) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_ORIGEM_TRANSFERENCIA_INVALIDA);
 		}
+		
 		if (contaOrigem.getSaldo() < dto.getValor()) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INSUFICIENTE);
 		}
+		
 		contaOrigem.setSaldo(contaOrigem.getSaldo() - dto.getValor());
 		
 		ContaBancaria contaDestino;

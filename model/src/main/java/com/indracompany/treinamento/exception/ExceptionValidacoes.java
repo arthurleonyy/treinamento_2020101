@@ -30,9 +30,13 @@ public enum ExceptionValidacoes implements AplicacaoExceptionValidacoes {
   ERRO_CONTA_DESTINO_TRANSFERENCIA_INVALIDA("msg.erro.conta.destino.transferencia.invalida",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_SALDO_INSUFICIENTE("msg.saldo.insuficiente",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_PERIODO_INVALIDO("msg.erro.periodo.invalido",null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
-  ALERTA_NENHUMA_OPERACAO_REGISTRADA("msg.app.alerta.nenhuma.operacao.bancaria.registrada",null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA),
+  ERRO_CONTAS_IDENTICAS("msg.erro.contas.identicas",null,AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
+  ERRO_CLIENTE_INEXISTENTE("msg.erro.cliente.inexistente",null,AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
+  
   // Mensagens Alterta
-  ALERTA_NENHUM_REGISTRO_ENCONTRADO("msg.app.alerta.nenhum.registro.encontrado", null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA);
+  ALERTA_NENHUMA_OPERACAO_REGISTRADA("msg.app.alerta.nenhuma.operacao.bancaria.registrada",null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA),
+  ALERTA_NENHUM_REGISTRO_ENCONTRADO("msg.app.alerta.nenhum.registro.encontrado", null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA),
+  ALERTA_CPF_SEM_CONTA("msg.alerta.cpf.sem.cont", null, AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA);
 
   @Getter
   @Setter
