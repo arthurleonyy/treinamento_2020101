@@ -1,0 +1,96 @@
+<div class="card mb-0 mt-4 rounded-0">
+    <div class="card-header card-custom-top">
+      <h5 class="align-middle text-dark">
+        <i class="fas fa-search"></i> Consultar Contas
+      </h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-required">
+                <small [ngClass]="{'text-red': displayMessage.agencia}">Agencia</small>
+              </label>
+              <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}" mask="000-0">
+              <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-required">
+                <small [ngClass]="{'text-red': displayMessage.conta}">Conta</small>
+              </label>
+              <input type="text" class="form-control" formControlName="conta" [ngClass]="{'is-invalid': displayMessage.conta}" mask="00.000-0">
+              <small class="form-text text-red" [innerHTML]="displayMessage.conta"></small>
+            </div>
+        </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-required">
+                <small [ngClass]="{'text-red': displayMessage.dataInicio}">Começando em</small>
+              </label>
+              <input type="text" class="form-control" formControlName="dataInicio" [ngClass]="{'is-invalid': displayMessage.dataInicio}" mask="00/00/0000">
+              <small class="form-text text-red" [innerHTML]="displayMessage.dataInicio"></small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="form-required">
+                <small [ngClass]="{'text-red': displayMessage.dataFim}">Até</small>
+              </label>
+              <input type="text" class="form-control" formControlName="dataFim" [ngClass]="{'is-invalid': displayMessage.dataFim}" mask="00/00/0000">
+              <small class="form-text text-red" [innerHTML]="displayMessage.dataFim"></small>
+            </div>
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-12">
+          <button type="submit" class="btn btn-danger float-right" [disabled]="form.invalid" (click)="onSubmit()">
+            <i class="fa fa-search"></i>
+            Pesquisar
+          </button>
+          <a [routerLink]="['/conta/operacoes']" class="btn btn-secondary float-right mr-1"> 
+            <i class="fa fa-times"></i>
+            Cancelar
+          </a>
+        </div>
+      </div>
+    </div>
+  
+  <div class="card card-red rounded-bottom-custom mt-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <app-table-custom [items]="extratos" [itemsPerPage]="15">
+            <ng-template appTableHeader>
+                <tr class="bg-gray-light">
+                  <th>Id</th>
+                  <th>Tipo de Transacao</th>
+                  <th>Descricao</th>
+                  <th>Data</th>
+                  <th>Valor</th>
+                </tr>
+            </ng-template>
+            <ng-template appTableBody let-item>
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.tipo }}</td>
+                <td>{{ item.descricao }}</td>
+                <td>{{ item.data }}</td>
+                <td [ngClass]="{green: item.tipo =='D' || item.tipo == 'TR', red: item.tipo =='S' || item.tipo == 'TE'}">{{ item.valor | currency: 'BRL'}}</td>
+              </tr>
+            </ng-template>
+            <ng-template appTableEmpty>
+              <tr><td colspan="5" class="text-center">Nenhum registro foi encontrado</td></tr>
+            </ng-template>
+          </app-table-custom>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

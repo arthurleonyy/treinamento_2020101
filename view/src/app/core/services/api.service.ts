@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
@@ -34,9 +34,13 @@ export class ApiService {
   /**
    * Generic GET Method
    * @param path URL path
+   * @param params Params of the get method
    */
-  public get(path: string): Observable<any> {
-    return this.httpClient.get(BASE_URL + path, this.getOptions())
+   public get(path: string, params?: HttpParams): Observable<any> {
+    let o = this.getOptions()
+     if(params)
+      o.params = params
+    return this.httpClient.get(BASE_URL + path, o)
       .pipe(catchError((e: any) => throwError(e)));
   }
 

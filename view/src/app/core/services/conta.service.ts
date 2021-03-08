@@ -24,7 +24,7 @@ export class ContaService {
     transferir(transferenciaInfo: TransferenciaDTO): Observable<any> {
         return this.apiService.post(`${this.controller}/transferencia`,transferenciaInfo);
     }
-    saldo(agencia:string,conta:string){
+    saldo(agencia:string,conta:string): Observable<any>{
         return this.apiService.get(`${this.controller}/consultar-saldo/${agencia}/${conta}`)
     }
     getContas(cpf: string): Observable<any> {

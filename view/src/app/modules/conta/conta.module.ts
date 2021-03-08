@@ -11,6 +11,7 @@ import { DepositarSacarComponent } from './pages/depositar-sacar/depositar-sacar
 import { OperacoesComponent } from './pages/operacoes/operacoes.component';
 import { TransferirComponent } from './pages/transferir/transferir.component';
 import { VerificarSaldoComponent } from './pages/verificar-saldo/verificar-saldo.component';
+import { ConsultarExtratoComponent } from './pages/consultar-extrato/consultar-extrato.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { VerificarSaldoComponent } from './pages/verificar-saldo/verificar-saldo
     TransferirComponent,
     VerificarSaldoComponent,
     ConsultarContasComponent,
+    ConsultarExtratoComponent,
   ],
   imports: [
     CommonModule,

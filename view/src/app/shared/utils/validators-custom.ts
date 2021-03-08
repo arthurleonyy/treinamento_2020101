@@ -2,6 +2,7 @@ import { AbstractControl, ValidatorFn, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
 import { isNullOrUndefined } from 'util';
+import {Moment} from 'node_modules/moment'
 
 export class ValidatorsCustom {
 
@@ -174,44 +175,49 @@ export class ValidatorsCustom {
      * Verifica se a data é inválida
      * @param control Campo a ser validado
      */
-    static validDate(control: AbstractControl) {
-        if (control.value) {
-            if (!moment(control.value).isValid()) {
-                return { validDate: true };
-            }
-        }
+    static validDate(dateFormat:string) {
+        return (control: AbstractControl) => {
+                        if (control.value) {
+                            if (!moment(control.value,dateFormat).isValid()) {
+                                return { validDate: true };
+                            }
+                        }
 
-        return null;
+                        return null;
+                    }
     }
 
     /**
      * Verifica se é a data minina
-     * @param control Campo a ser validado
+     * @param dateFormat o formato da data que será avaliada
      */
-    static minDate(control: AbstractControl) {
-        if (control.value) {
-            const date = new Date(control.value);
-            if (moment(date).isValid() && date.getFullYear() < (new Date(0).getFullYear() - 69)) {
-                return { minDate: true };
-            }
-        }
+    static minDate(dateFormat:string) {
+        return (control: AbstractControl) => {
+                        if (control.value) {
+                            // const date = new Date(control.value);
+                            if (moment(control.value,dateFormat).isValid() && moment(control.value,dateFormat).toDate().getFullYear() < (new Date(0).getFullYear() - 69)) {
+                                return { minDate: true };
+                            }
+                        }
 
-        return null;
+                        return null;
+                    }
     }
 
     /**
      * Verifica se a data é superior a data atual
      * @param control Campo a ser validado
      */
-    static higherDate(control: AbstractControl) {
-        const currentDate = new Date();
-        const date = new Date(control.value);
+    static higherDate(dateFormat:string) {
+        return (control: AbstractControl) => {
+                const currentDate = new Date();
 
-        if (moment(date).isValid() && currentDate < date) {
-            return { higherDate: true };
-        }
+                if (moment(control.value).isValid() && currentDate < moment(control.value).toDate()) {
+                    return { higherDate: true };
+                }
 
-        return null;
+                return null;
+            }      
     }
 
     /**
@@ -236,7 +242,7 @@ export class ValidatorsCustom {
         }
     }
 
-    static SameAccount(form: FormGroup) {
+    static SameAccount(form: AbstractControl) {
         const agenciaOrigem = form.get('agenciaOrigem').value;
         const numeroContaOrigem = form.get('numeroContaOrigem').value;
         const agenciaDestino = form.get('agenciaDestino').value;
@@ -266,6 +272,29 @@ export class ValidatorsCustom {
         form.get('numeroContaDestino').updateValueAndValidity({ onlySelf: true });
 
         return null;
+    }
+
+    static PeriodoCorreto(initialDateControl: string, finalDateControl:string, dateFormat:string) {
+        return (form: AbstractControl) => {
+                    const dataInicio = form.get(initialDateControl).value;
+                    const dataFim = form.get(finalDateControl).value;
+
+                    if (!dataInicio || !dataFim) {
+                        return null;
+                    }
+                    if(moment(dataInicio,dateFormat).isAfter(moment(dataFim,dateFormat))) {
+                        form.get(initialDateControl).setErrors({ periodoCorreto: true });
+                        form.get(finalDateControl).setErrors({ periodoCorreto: true });
+                        return null;
+                    }
+                    else {
+                        form.get(initialDateControl).setErrors({ periodoCorreto: null });
+                        form.get(finalDateControl).setErrors({ periodoCorreto: null });
+                    }
+                    form.get(initialDateControl).updateValueAndValidity({ onlySelf: true });
+                    form.get(finalDateControl).updateValueAndValidity({ onlySelf: true });
+                    return null;
+                }
     }
 
 }
