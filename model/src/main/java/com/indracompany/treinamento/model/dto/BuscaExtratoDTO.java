@@ -4,15 +4,19 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
-public class ExtratoDTO {
+public class BuscaExtratoDTO {
 
-	private String conta;
 	private String agencia;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private String conta;
+	@JsonFormat(pattern="ddMMyyyy")
+	@DateTimeFormat(pattern = "ddMMyyyy")
 	private Date dataInicio;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern="ddMMyyyy")
+	@DateTimeFormat(pattern = "ddMMyyyy")
 	private Date dataFim;
 }

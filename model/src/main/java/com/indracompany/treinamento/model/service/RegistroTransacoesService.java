@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.indracompany.treinamento.exception.AplicacaoException;
 import com.indracompany.treinamento.exception.ExceptionValidacoes;
+import com.indracompany.treinamento.model.dto.BuscaExtratoDTO;
 import com.indracompany.treinamento.model.dto.ExtratoDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.entity.RegistroTransacoes;
@@ -31,10 +32,10 @@ public class RegistroTransacoesService extends GenericCrudService<RegistroTransa
 		super.salvar(r);
 	}
 	
-	public List<RegistroTransacoes> getEstrato(ExtratoDTO dto) {
+	public List<ExtratoDTO> getEstrato(BuscaExtratoDTO dto) {
 		if(dto.getDataInicio().after(dto.getDataFim())) throw new AplicacaoException(ExceptionValidacoes.ERRO_PERIODO_INVALIDO);
 		
-		List<RegistroTransacoes> listaRegistros = getRepository().getExtrato(dto.getAgencia(), dto.getConta(), dto.getDataInicio(), dto.getDataFim());
+		List<ExtratoDTO> listaRegistros = getRepository().getExtrato(dto.getAgencia(), dto.getConta(), dto.getDataInicio(), dto.getDataFim());
 		
 		if(listaRegistros.isEmpty()) throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUMA_OPERACAO_REGISTRADA);
 		return listaRegistros;

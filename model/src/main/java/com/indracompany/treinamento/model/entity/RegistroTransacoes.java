@@ -48,15 +48,15 @@ public class RegistroTransacoes extends GenericEntity<Long> {
 	@Column(nullable = false)
 	private Double valor;
 	
-	public RegistroTransacoes() {}
-	
-	public RegistroTransacoes(Long id, String tipo, String descricao, Date data, Double valor) {
-		this.id = id;
-		this.tipoTransacao = tipo;
-		this.descricao = descricao;
-		
-		this.data = data;
-		this.valor = valor;
-	}
+//	public RegistroTransacoes() {}
+//	
+//	public RegistroTransacoes(Long id, String tipo, String descricao, Date data, Double valor) {
+//		this.id = id;
+//		this.tipoTransacao = tipo;
+//		this.descricao = descricao;
+//		
+//		this.data = data;
+//		this.valor = valor;
+//	}
 	
 }
