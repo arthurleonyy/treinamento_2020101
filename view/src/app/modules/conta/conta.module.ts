@@ -11,6 +11,7 @@ import { TransferenciaComponent } from './pages/transferencia/transferencia.comp
 import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.component';
 import { ConsultarContasComponent } from './pages/consultar-contas/consultar-contas.component';
 import { NgxMaskModule } from "ngx-mask";
+import { EmitirExtratoComponent } from './pages/emitir-extrato/emitir-extrato.component';
 
 @NgModule({
     declarations:[
@@ -20,6 +21,7 @@ import { NgxMaskModule } from "ngx-mask";
         TransferenciaComponent,
         ConsultaSaldoComponent,
         ConsultarContasComponent,
+        EmitirExtratoComponent,
     ],
     imports:[
         CommonModule,

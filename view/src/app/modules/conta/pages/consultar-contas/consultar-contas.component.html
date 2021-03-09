@@ -13,7 +13,7 @@
                         <label class="form-required">
                             <small [ngClass]="{'text-red': displayMessage.cpf}">CPF</small>
                         </label>
-                        <input type="text" class="form-control" formControlName="cpf" mask="000.000.000-00">
+                        <input type="text" class="form-control" formControlName="cpf" mask="000.000.000-00" [ngClass]="{'is-invalid': displayMessage.cpf}">
                         <small class="form-text text-red" [innerHTML]="displayMessage.cpf"></small>
                     </div>
                 </div>

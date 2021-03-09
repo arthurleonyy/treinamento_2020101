@@ -1,0 +1,131 @@
+<div class="card mb-0 mt-4 rounded-0">
+    <div class="card-header card-custom-top">
+        <h5 class="align-middle text-dark">
+            <i class="fab fa-wpforms"></i> Emitir Extrato
+        </h5>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="row">
+                <span class="card col-12 col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações da Conta</h5>
+                        <div class="card-text">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="form-required">
+                                        <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
+                                    </label>
+                                    <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
+                                    <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="form-required">
+                                        <small [ngClass]="{'text-red': displayMessage.numeroConta}">Número da Conta</small>
+                                    </label>
+                                    <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}">
+                                    <small class="form-text text-red" [innerHTML]="displayMessage.numeroConta"></small>
+                                </div>
+                            </div>
+                
+                            <div class="form-group form-check">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="datas" formControlName="filtro">
+                                    <label class="custom-control-label" for="datas">Filtrar por datas</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span class="col-0 ml-5 mr-5"></span>
+
+                <ng-template [ngIf]="this.form.get('filtro').value == true">
+                    <span class="card col-12 col-md-5">
+                        <div class="card-body">
+                            <h5 class="card-title">Filtro de Data</h5>
+                            <div class="card-text">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>
+                                            <small>Data Início</small>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="dataInicio" mask='00/00/0000' [dropSpecialCharacters]="false">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>
+                                            <small>Data Fim</small>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="dataFim" mask='00/00/0000' [dropSpecialCharacters]="false">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </ng-template>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger float-left mr-1" (click)="onSubmit()" [disabled]="form.invalid"><i class="fa fa-search"></i> Consultar</button>
+                <a class="btn btn-secondary float-left" [routerLink]="['/conta/operacoes']"><i class="fa fa-times"></i> Cancelar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-red rounded-bottom-custom mt-5">
+        <div class="card-body">
+            <div class="col-md-12">
+                <app-table-custom [items]="extrato" [itemsPerPage]="10">
+                    <ng-template appTableHeader>
+                        <tr class="bg-gray-light">
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Agência</th>
+                            <th>Nº da Conta</th>
+                            <th>Operação</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template appTableBody let-item>
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.nome }}</td>
+                            <td>{{ item.agencia }}</td>
+                            <td>{{ item.conta }}</td>
+
+                            <ng-template [ngIf]="item.operacao == 'deposito'" [ngIfElse]="saque">
+                                <td class="text-green">Depósito</td>
+                            </ng-template>
+
+                            <ng-template #saque>
+                                <ng-template [ngIf]="item.operacao == 'saque'" [ngIfElse]="transferencia">
+                                    <td class="text-red">Saque</td>
+                                </ng-template>
+                                
+                                <ng-template #transferencia>
+                                    <td class="text-yellow">Transferência</td>
+                                </ng-template>
+                            </ng-template>
+                            
+                            <td>{{ item.valor | currency: 'BRL'}}</td>
+                            <td>{{ item.data }}</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template appTableEmpty>
+                        <tr>
+                            <td colspan="7" class="text-center">Nenhum registro de extrato encontrado</td>
+                        </tr>
+                    </ng-template>
+                </app-table-custom>
+            </div>
+        </div>
+    </div>
+</div>

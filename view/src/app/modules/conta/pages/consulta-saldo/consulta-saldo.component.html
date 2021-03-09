@@ -11,9 +11,9 @@
                 <div class="col-12 col-md-4">
                     <div class="form-group">
                         <label class="form-required">
-                            <small>Agência</small>
+                            <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
                         </label>
-                        <input type="text" class="form-control" formControlName="agencia">
+                        <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
                         <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                         <label class="form-required">
                             <small>Número da Conta</small>
                         </label>
-                        <input type="text" class="form-control" formControlName="numeroConta">
+                        <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}">
                         <small class="form-text text-red" [innerHTML]="displayMessage.numeroConta"></small>
                     </div>
                 </div>

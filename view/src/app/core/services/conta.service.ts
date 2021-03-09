@@ -31,5 +31,13 @@ export class ContaService{
     consultarContas(cpf: string): Observable<any>{
         return this.api.get(`${this.controller}/consultar-contas-cliente/${cpf}`);
     }
+
+    emitirExtrato(agencia: string, conta: string): Observable<any>{
+        return this.api.get(`extrato/emitir-extrato/${agencia}/${conta}`);
+    }
+
+    emitirExtratoComData(agencia: string, conta: string, dataInicio: string, dataFim: string){
+        return this.api.get(`extrato/emitir-extrato-com-data/${agencia}/${conta}/${dataInicio}/${dataFim}`);
+    }
     
 }

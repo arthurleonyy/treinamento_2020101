@@ -263,5 +263,13 @@ export class ValidatorsCustom {
             return null;
         }
     }
+    
+    static validateDate(control1: string, control2: string){
+        if(control1 > control2){
+            return { invalidDate: true };
+        } else{
+            return null;
+        }
+    }
 
 }
