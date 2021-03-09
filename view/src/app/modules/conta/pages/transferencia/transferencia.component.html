@@ -8,7 +8,7 @@
     <div class="card-body">
         <form [formGroup]="form">
             <div class="row">
-                <span class="card col-5">
+                <span class="card col-12 col-md-5">
                     <div class="card-body">
                         <h5 class="card-title">Conta Origem</h5>
                         <div class="card-text">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </span>
-                <span class="col-2">
+                <span class="col-12 col-md-2">
                     <br><br>
                     <div class="form-group">
                         <label class="form-required" [ngClass]="{'text-red': displayMessage.valor}">
@@ -43,8 +43,9 @@
                         <small class="form-text text-red" [innerHTML]="displayMessage.valor"></small>
                     </div>
                     <button type="submit" class="btn btn-danger center col-12" [disabled]="form.invalid" (click)="transferir()">Transferir<br><i class="fas fa-exchange-alt"></i></button>
+                    <br><br><br><br>
                 </span>
-                <span class="card col-5">
+                <span class="card col-12 col-md-5">
                     <div class="card-body">
                         <h5 class="card-title">Conta Destino</h5>
                         <div class="card-text">

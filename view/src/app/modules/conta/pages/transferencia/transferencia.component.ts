@@ -34,7 +34,9 @@ export class TransferenciaComponent extends FormBase implements OnInit {
       agenciaDestino: ['', [Validators.required]],
       numeroContaDestino: ['', [Validators.required]],
       valor: [0, [Validators.required, ValidatorsCustom.lessThanOne]],
-    })
+    },
+     {validator: [ValidatorsCustom.camposIguais('numeroContaOrigem', 'numeroContaDestino')]}
+    )
   }
 
   validateMessageError(){
@@ -43,13 +45,16 @@ export class TransferenciaComponent extends FormBase implements OnInit {
         required: "Agência obrigatória"
       },
       numeroContaOrigem:{
-        required: "Conta obrigatória"
+        required: "Conta obrigatória",
+        camposIguais: "Conta Origem e Conta Destino não podem ser iguais"
+
       },
       agenciaDestino:{
         required: "Agência obrigatória"
       },
       numeroContaDestino:{
-        required: "Conta obrigatória"
+        required: "Conta obrigatória",
+        camposIguais: "Conta Origem e Conta Destino não podem ser iguais"
       },
       valor:{
         required: "Valor obrigatório",
