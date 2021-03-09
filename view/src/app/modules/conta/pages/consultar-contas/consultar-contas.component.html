@@ -1,0 +1,65 @@
+<div class="card mb-0 mt-4 rounded-0">
+    <div class="card-header card-custom-top">
+        <h5 class="align-middle text-dark">
+            <i class="fas fa-search"></i> Consultar Saldo
+        </h5>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <label class="form-required">
+                            <small [ngClass]="{'text-red': displayMessage.cpf}">CPF</small>
+                        </label>
+                        <input type="text" class="form-control" formControlName="cpf" mask="000.000.000-00">
+                        <small class="form-text text-red" [innerHTML]="displayMessage.cpf"></small>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger float-left mr-1" (click)="onSubmit()" [disabled]="form.invalid"><i class="fa fa-search"></i> Consultar</button>
+                <a class="btn btn-secondary float-left" [routerLink]="['/conta/operacoes']"><i class="fa fa-times"></i> Cancelar</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card card-red rounded-bottom-custom mt-5">
+        <div class="card-body">
+            <div class="col-md-12">
+                <app-table-custom [items]="listaContas" [itemsPerPage]="10">
+                    <ng-template appTableHeader>
+                        <tr class="bg-gray-light">
+                            <th>Agência</th>
+                            <th>Nº da Conta</th>
+                            <th>CPF</th>
+                            <th>Cliente</th>
+                            <th>E-Mail</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template appTableBody let-item>
+                        <tr>
+                            <td> {{item.agencia}} </td>
+                            <td> {{item.numeroConta}} </td>
+                            <td> {{item.cpf | mask: '000.000.000-00'}} </td>
+                            <td> {{item.cliente}} </td>
+                            <td> {{item.email}} </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template appTableEmpty>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                Nenhum registro encontrado
+                            </td>
+                        </tr>
+                    </ng-template>
+                </app-table-custom>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router"
 import { ConsultaSaldoComponent } from "./pages/consulta-saldo/consulta-saldo.component";
+import { ConsultarContasComponent } from "./pages/consultar-contas/consultar-contas.component";
 import { ContaComponent } from "./pages/conta/conta.component";
 import { DepositoSaqueComponent } from "./pages/deposito-saque/deposito-saque.component";
 import { OperacoesComponent } from "./pages/operacoes/operacoes.component";
@@ -34,6 +35,10 @@ const routes: Routes = [
             {
                 path: 'saldo',
                 component: ConsultaSaldoComponent
+            },
+            {
+                path: 'contas',
+                component: ConsultarContasComponent
             }
         ]
     },

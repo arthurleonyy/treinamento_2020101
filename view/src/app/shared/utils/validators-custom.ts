@@ -237,4 +237,31 @@ export class ValidatorsCustom {
         }
     }
 
+    static camposIguais(control1: string, control2: string) {
+        return (group: AbstractControl): { [key: string] : boolean} | null => {
+            const campo1 = group.get('numeroContaOrigem').value;
+            const campo2 = group.get('numeroContaDestino').value;
+
+            if(campo1 && campo2){
+                if(campo1 === campo2){
+                    group.get(control1).setErrors({ camposIguais: true });
+                    group.get(control2).setErrors({ camposIguais: true });
+                } else{
+                    if(group.get(control1).errors && group.get(control1).errors.camposIguais){
+                        delete group.get(control1).errors.camposIguais;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                    if(group.get(control2).errors && group.get(control2).errors.camposIguais){
+                        delete group.get(control2).errors.camposIguais;
+                        group.get(control1).updateValueAndValidity();
+                        group.get(control2).updateValueAndValidity();
+                    }
+                }
+            }
+
+            return null;
+        }
+    }
+
 }

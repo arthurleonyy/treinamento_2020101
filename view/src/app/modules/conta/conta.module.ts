@@ -9,6 +9,8 @@ import { DepositoSaqueComponent } from './pages/deposito-saque/deposito-saque.co
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TransferenciaComponent } from './pages/transferencia/transferencia.component';
 import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.component';
+import { ConsultarContasComponent } from './pages/consultar-contas/consultar-contas.component';
+import { NgxMaskModule } from "ngx-mask";
 
 @NgModule({
     declarations:[
@@ -17,6 +19,7 @@ import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.co
         DepositoSaqueComponent,
         TransferenciaComponent,
         ConsultaSaldoComponent,
+        ConsultarContasComponent,
     ],
     imports:[
         CommonModule,
@@ -24,7 +27,8 @@ import { ConsultaSaldoComponent } from './pages/consulta-saldo/consulta-saldo.co
         SharedModule.forRoot(),
         CoreModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxMaskModule.forRoot()
     ]
 })
 export class ContaModule{ }

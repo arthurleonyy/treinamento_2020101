@@ -1,4 +1,3 @@
-import { stringify } from "@angular/compiler/src/util";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { ContaDTO } from "../dtos/conta.dto";
@@ -26,7 +25,11 @@ export class ContaService{
     }
 
     consultarSaldo(agencia: string, numeroConta: string): Observable<any>{
-        
         return this.api.get(`${this.controller}/consultar-saldo/${agencia}/${numeroConta}`);
     }
+
+    consultarContas(cpf: string): Observable<any>{
+        return this.api.get(`${this.controller}/consultar-contas-cliente/${cpf}`);
+    }
+    
 }
