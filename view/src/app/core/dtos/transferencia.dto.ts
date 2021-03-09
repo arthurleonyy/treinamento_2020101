@@ -1,22 +1,17 @@
 export class TransferenciaDTO {
 
     agenciaOrigem?: string;
-    agenciaDestino?: string;
     numeroContaOrigem?: string;
+    agenciaDestino?: string;
     numeroContaDestino?: string;
     valor?: number;
 
-    constructor(obj?) {
-        if (obj) {
-            this.agenciaOrigem = obj.agenciaOrigem;
-            this.agenciaDestino = obj.agenciaDestino;
-            this.numeroContaOrigem = obj.numeroContaOrigem;
-            this.numeroContaDestino = obj.numeroContaDestino;
-            this.valor = obj.valor;
-
-        }
+    constructor(obj?: any) {
+        this.agenciaOrigem = obj.agenciaOrigem;
+        this.numeroContaOrigem = obj.numeroContaOrigem;
+        this.agenciaDestino = obj.agenciaDestino;
+        this.numeroContaDestino = obj.numeroContaDestino;
+        this.valor = obj.valor;
     }
-
-
-
+    
 }

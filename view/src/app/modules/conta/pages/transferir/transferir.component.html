@@ -10,7 +10,7 @@
           <div class="col-12 col-md-4">
             <div class="form-group">
               <label class="form-required">
-                <small [ngClass]="{'text-red': displayMessage.agenciaOrigem}">Agência de Origem</small>
+                <small [ngClass]="{'text-red': displayMessage.agenciaOrigem}">Agência de origem</small>
               </label>
               <input type="text" class="form-control" formControlName="agenciaOrigem" [ngClass]="{'is-invalid': displayMessage.agenciaOrigem}">
               <small class="form-text text-red" [innerHTML]="displayMessage.agenciaOrigem"></small>
@@ -19,16 +19,7 @@
           <div class="col-12 col-md-4">
             <div class="form-group">
               <label class="form-required">
-                <small [ngClass]="{'text-red': displayMessage.agenciaDestino}">Agência de Destino</small>
-              </label>
-              <input type="text" class="form-control" formControlName="agenciaDestino" [ngClass]="{'is-invalid': displayMessage.agenciaDestino}">
-              <small class="form-text text-red" [innerHTML]="displayMessage.agenciaDestino"></small>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="form-group">
-              <label class="form-required">
-                <small [ngClass]="{'text-red': displayMessage.numeroContaOrigem}">Conta de Origem</small>
+                <small [ngClass]="{'text-red': displayMessage.numeroContaOrigem}">Conta de origem</small>
               </label>
               <input type="text" class="form-control" formControlName="numeroContaOrigem" [ngClass]="{'is-invalid': displayMessage.numeroContaOrigem}">
               <small class="form-text text-red" [innerHTML]="displayMessage.numeroContaOrigem"></small>
@@ -37,7 +28,16 @@
           <div class="col-12 col-md-4">
             <div class="form-group">
               <label class="form-required">
-                <small [ngClass]="{'text-red': displayMessage.numeroContaDestino}">Conta de Destino</small>
+                <small [ngClass]="{'text-red': displayMessage.agenciaDestino}">Agência de destino</small>
+              </label>
+              <input type="text" class="form-control" formControlName="agenciaDestino" [ngClass]="{'is-invalid': displayMessage.agenciaDestino}">
+              <small class="form-text text-red" [innerHTML]="displayMessage.agenciaDestino"></small>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <label class="form-required">
+                <small [ngClass]="{'text-red': displayMessage.numeroContaDestino}">Conta de destino</small>
               </label>
               <input type="text" class="form-control" formControlName="numeroContaDestino" [ngClass]="{'is-invalid': displayMessage.numeroContaDestino}">
               <small class="form-text text-red" [innerHTML]="displayMessage.numeroContaDestino"></small>
@@ -54,6 +54,12 @@
           </div>
         </div>
       </form>
+      <!-- {{form.valid | json}}
+      <pre>{{form.get('agenciaOrigem').valid | json}}</pre>
+      <pre>{{form.get('numeroContaOrigem').valid | json}}</pre>
+      <pre>{{form.get('agenciaDestino').valid | json}}</pre>
+      <pre>{{form.get('numeroContaDestino').valid | json}}</pre>
+      <pre>{{form.get('valor').valid | json}}</pre> -->
     </div>
     <div class="card-footer">
       <div class="row">
@@ -69,5 +75,5 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
   

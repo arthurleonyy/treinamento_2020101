@@ -1,12 +1,11 @@
-import { SweetalertCustom } from './../../../../shared/utils/sweetalert-custom';
-import { TransferenciaDTO } from './../../../../core/dtos/transferencia.dto';
-import { ContaService } from 'src/app/core/services/conta.service';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FormBase } from 'src/app/core/classes/form-base';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBase } from 'src/app/core/classes/form-base';
+import { TransferenciaDTO } from 'src/app/core/dtos/transferencia.dto';
+import { ContaService } from 'src/app/core/services/conta.service';
+import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
 import { ValidatorsCustom } from 'src/app/shared/utils/validators-custom';
-import { type } from 'os';
 
 @Component({
   selector: 'app-transferir',
@@ -16,64 +15,68 @@ import { type } from 'os';
 export class TransferirComponent extends FormBase implements OnInit {
 
   constructor(
-    private FormBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private contaService: ContaService,
-    private router: Router
+    public router: Router
   ) {
     super();
-   }
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validateMensageError();
     this.createFormGroup();
   }
 
-  createFormGroup() {
-    this.form = this.FormBuilder.group({
+  createFormGroup(): void {
+    this.form = this.formBuilder.group({
       agenciaOrigem: ['', [Validators.required]],
-      agenciaDestino: ['', [Validators.required]],
       numeroContaOrigem: ['', [Validators.required]],
+      agenciaDestino: ['', [Validators.required]],
       numeroContaDestino: ['', [Validators.required]],
-      valor:        [0, [Validators.required, ValidatorsCustom.lessThanOne]],
-
+      valor: [0, [Validators.required, ValidatorsCustom.lessThanOne]],
+    }, {
+      validator: [ValidatorsCustom.camposIguais('numeroContaOrigem', 'numeroContaDestino')]
     });
   }
+
   validateMensageError() {
     this.createValidateFieldMessage({
       agenciaOrigem: {
-        required: 'Informar a agência de origem'
-      },
-      agenciaDestino: {
-        required: 'Informar a agência de destino'
+        required: 'Agência de origem obrigatória.'
       },
       numeroContaOrigem: {
-        required: 'Informar a Numero da Conta de origem'
+        required: 'Conta de origem obrigatória.',
+        camposIguais: 'Conta de origem não pode ser igual a conta de destino.'
+      },
+      agenciaDestino: {
+        required: 'Agência de destino obrigatória.'
       },
       numeroContaDestino: {
-        required: 'Informar a Numero da Conta de destino'
+        required: 'Conta de destino obrigatória.',
+        camposIguais: 'Conta de origem não pode ser igual a conta de destino.'
       },
       valor: {
         required: 'Valor obrigatório.',
         lessThanOne: 'Valor informado deve ser maior que zero.'
-      },
+      }
     });
+  }
 
-//    onSubmit() {
-//      if (this.form.valid) {
-//        const transfarencia = new TransferenciaDTO(this.form.value);
-//       this.contaService.transferir(transfarencia).subscribe(
-//          response => {
-//            SweetalertCustom.showAlertTimer('Transfarencia executada com sucesso ', {type: 'success'}).then (
-//              result => {
-//                if (result.dismiss) {
-//                  this.router.navigate(['conta/operacoes']);
-//                }
-//              }
-//            );
-//          }
-//
-//        );
-//     }
+  onSubmit() {
+    if (this.form.valid) {
+      let transferencia = new TransferenciaDTO(this.form.value);
+      this.contaService.transferir(transferencia).subscribe(
+        response => {
+          SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', {type: 'success'}).then(
+            result => {
+              if (result.dismiss) {
+                this.router.navigate(['conta/operacoes']);
+              }
+            }
+          );
+        }
+      );
     }
   }
-//}
+
+}

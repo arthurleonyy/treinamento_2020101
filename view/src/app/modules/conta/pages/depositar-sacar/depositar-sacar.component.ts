@@ -28,12 +28,6 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
     this.getNameScreen();
     this.validateMensageError();
     this.createFormGroup();
-
- //   this.contaService.listaConta().subscribe(
-  //    response => {
-  //      console.log(response)
- //     }
- //  );
   }
 
   private getNameScreen() {
@@ -66,7 +60,7 @@ export class DepositarSacarComponent extends FormBase implements OnInit {
       valor: {
         required: 'Valor obrigatório.',
         lessThanOne: 'Valor informado deve ser maior que zero.'
-      },
+      }
     });
   }
 

@@ -22,11 +22,14 @@ export class ContaService {
     }
 
     transferir(transferencia: TransferenciaDTO): Observable<any> {
-        return this.apiService.post(`${this.controller}/transferir`, transferencia);
+        return this.apiService.post(`${this.controller}/transferencia`, transferencia);
     }
 
-    saldo(conta: ContaDTO): Observable<any> {
-        return this.apiService.get(`${this.controller}/consultar-saldo/${conta.agencia}/${conta.numeroConta}`);
+    getSaldo(agencia: string, numeroConta: string): Observable<any> {
+        return this.apiService.get(`${this.controller}/consultar-saldo/${agencia}/${numeroConta}`);
     }
 
+    getContas(cpf: string): Observable<any> {
+        return this.apiService.get(`${this.controller}/consultar-contas-cliente/${cpf}`);
+    }
 }

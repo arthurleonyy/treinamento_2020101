@@ -11,7 +11,7 @@ import { TableEmptyDirective } from './config/table-empty.directive';
 export class TableCustomComponent implements OnInit {
 
   @Input() items: any[] = [];
-  @Input() itemsPerPage = 0;
+  @Input() itemsPerPage = 10;
   @Input() paginator = true;
   @Input() classPaginator = 'bcg-navy';
 
@@ -23,7 +23,11 @@ export class TableCustomComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (!this.items || this.items.length === 0) {
+      this.items = [];
+    }
+  }
 
   setCurrentPage(page) {
     this.pageCurrent = page;
