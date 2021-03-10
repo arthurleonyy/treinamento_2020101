@@ -37,7 +37,7 @@ export class EmitirExtratoComponent extends FormBase implements OnInit {
       dataFim: [''],
       filtro: [false]
     },
-    //  {validator: [ValidatorsCustom.validateDate('dataInicio', 'dataFim')]}
+     {validator: [ValidatorsCustom.validarData('dataInicio', 'dataFim')]}
     );
   }
 
@@ -49,9 +49,19 @@ export class EmitirExtratoComponent extends FormBase implements OnInit {
       numeroConta: {
         required: "Número da Conta obrigatório"
       },
-      // dataInicio: {
-      //   invalidDate: "Data de início não pode ser menor que a de fim"
-      // }
+      dataInicio: {
+        invalidStartDate: "Data Início não pode ser menor que a Data Fim",
+        invalidDate: "Data inválida. Por favor, digite uma data válida.",
+        invalidDay: "Dia inválido. Por favor, digite um dia válido (01-31)",
+        invalidMonth: "Mês inválido. Por favor, digite um mês válido (01-12)",
+        invalidYear: "Ano inválido. Por favor, digite um ano válido"
+      },
+      dataFim: {
+        invalidDate: "Data inválida. Por favor, digite uma data válida.",
+        invalidDay: "Dia inválido. Por favor, digite um dia válido (01-31)",
+        invalidMonth: "Mês inválido. Por favor, digite um mês válido (01-12)",
+        invalidYear: "Ano inválido. Por favor, digite um ano válido"
+      }
     })
   }
 
@@ -111,11 +121,15 @@ export class EmitirExtratoComponent extends FormBase implements OnInit {
   }
 
   converterData(data: string){
-  
     let novaData = new Date(data.split('/').reverse().join('-') + ' 00:00:00');
     let format = new DatePipe('en-US');
 
     return format.transform(novaData, 'yyyy-MM-dd');
+  }
+
+  limparCampos(){
+    this.form.get('dataInicio').setValue("");
+    this.form.get('dataFim').setValue("");
   }
 
 }

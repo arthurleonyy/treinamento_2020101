@@ -1,3 +1,4 @@
+import { group } from '@angular/animations';
 import { AbstractControl, ValidatorFn, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
@@ -259,17 +260,114 @@ export class ValidatorsCustom {
                     }
                 }
             }
-
-            return null;
-        }
-    }
-    
-    static validateDate(control1: string, control2: string){
-        if(control1 > control2){
-            return { invalidDate: true };
-        } else{
             return null;
         }
     }
 
+    static validarData(control1: string, control2: string){
+        return(group: AbstractControl): { [key: string] : boolean} | null => {
+            const data1 = group.get('dataInicio').value;
+            const data2 = group.get('dataFim').value;
+
+            const partes = data1.split("/");
+            const partes2 = data2.split("/");
+
+            if(data1 && data2){
+                var dataInicio: Date = new Date(partes[2], partes[1] - 1, partes[0]);
+                var dataFim: Date = new Date(partes2[2], partes2[1] - 1, partes2[0]);
+                
+                if(dataInicio > dataFim){
+                    group.get(control1).setErrors({ invalidStartDate: true });
+                } else {
+                    if(group.get(control1).errors && group.get(control1).errors.invalidStartDate){
+                        delete group.get(control1).errors.invalidStartDate;
+                        group.get(control1).updateValueAndValidity();
+                    }
+                }
+            }
+
+
+            /**
+             * Validação de data geral
+             */
+            if((data1.length != 10) && (data1.length > 0)){
+                group.get(control1).setErrors({ invalidDate: true });
+            } else {
+                if(group.get(control1).errors && group.get(control1).errors.invalidDate){
+                    delete group.get(control1).errors.invalidDate;
+                    group.get(control1).updateValueAndValidity();
+                }
+            }
+            if((data2.length != 10) && (data2.length > 0)){
+                group.get(control2).setErrors({ invalidDate: true });
+            } else {
+                if(group.get(control2).errors && group.get(control2).errors.invalidDate){
+                    delete group.get(control2).errors.invalidDate;
+                    group.get(control2).updateValueAndValidity();
+                }
+            }
+
+            /**
+             * Validação de data individual (dia, mês e ano)
+             */
+            // Validação do Dia
+            if((partes[0] < 1) && (partes[0] > 31) && (data1.length > 1)){
+                group.get(control1).setErrors({ invalidDay: true });
+            } else{
+                if(group.get(control1).errors && group.get(control1).errors.invalidDay){
+                    delete group.get(control1).errors.invalidDay;
+                    group.get(control1).updateValueAndValidity();
+                }
+            }
+
+            if((partes2[0] < 1) && (partes2[0] > 31) && (data2.length > 1)){
+                group.get(control2).setErrors({ invalidDay: true });
+            } else{
+                if(group.get(control2).errors && group.get(control2).errors.invalidDay){
+                    delete group.get(control2).errors.invalidDay;
+                    group.get(control2).updateValueAndValidity();
+                }
+            }
+
+            // Validação do Mês
+            if((partes[1] < 1) || (partes[1] > 12)){
+                group.get(control1).setErrors({ invalidMonth: true });
+            } else{
+                if(group.get(control1).errors && group.get(control1).errors.invalidMonth){
+                    delete group.get(control1).errors.invalidMonth;
+                    group.get(control1).updateValueAndValidity();
+                }
+            }
+
+            if((partes2[1] < 1) || (partes2[1] > 12)){
+                group.get(control2).setErrors({ invalidMonth: true });
+            } else{
+                if(group.get(control2).errors && group.get(control2).errors.invalidMonth){
+                    delete group.get(control2).errors.invalidMonth;
+                    group.get(control2).updateValueAndValidity();
+                }
+            }
+            
+            // Validação de Ano
+            if((data1.length > 4 && data1.length < 10) || (partes[2] < 1900)){
+                group.get(control1).setErrors({ invalidYear: true });
+            } else{
+                if(group.get(control1).errors && group.get(control1).errors.invalidYear){
+                    delete group.get(control1).errors.invalidYear;
+                    group.get(control1).updateValueAndValidity();
+                }
+            }
+
+            if((data2.length > 4 && data2.length < 10) || (partes2[2] < 1900)){
+                group.get(control2).setErrors({ invalidYear: true });
+            } else{
+                if(group.get(control2).errors && group.get(control2).errors.invalidYear){
+                    delete group.get(control2).errors.invalidYear;
+                    group.get(control2).updateValueAndValidity();
+                }
+            }
+
+            return null;
+        }
+    }
 }

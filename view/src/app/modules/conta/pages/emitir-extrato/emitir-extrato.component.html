@@ -1,3 +1,12 @@
+<!-- <head>
+    <style type="text/css">
+        .selectt {
+            display: none;
+        }
+    </style>
+</head> -->
+
+
 <div class="card mb-0 mt-4 rounded-0">
     <div class="card-header card-custom-top">
         <h5 class="align-middle text-dark">
@@ -8,7 +17,7 @@
     <div class="card-body">
         <form [formGroup]="form">
             <div class="row">
-                <span class="card col-12 col-md-5">
+                <div class="card col-12 col-md-5">
                     <div class="card-body">
                         <h5 class="card-title">Informações da Conta</h5>
                         <div class="card-text">
@@ -17,7 +26,7 @@
                                     <label class="form-required">
                                         <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
                                     </label>
-                                    <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
+                                    <input type="text" ng-disabled="true" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}">
                                     <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
                                 </div>
                             </div>
@@ -31,19 +40,17 @@
                                 </div>
                             </div>
                 
-                            <div class="form-group form-check">
+                            <div class="form-group form-check" (click)="limparCampos()">
                                 <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="datas" formControlName="filtro">
+                                    <input type="checkbox" class="custom-control-input" id="datas" formControlName="filtro" value="Data">
                                     <label class="custom-control-label" for="datas">Filtrar por datas</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </span>
-                <span class="col-0 ml-5 mr-5"></span>
-
-                <ng-template [ngIf]="this.form.get('filtro').value == true">
-                    <span class="card col-12 col-md-5">
+                </div>
+                <div class="col-0 ml-5 mr-5"></div>
+                    <div class="Data selectt card col-12 col-md-5" [hidden]="!this.form.get('filtro').value">
                         <div class="card-body">
                             <h5 class="card-title">Filtro de Data</h5>
                             <div class="card-text">
@@ -52,7 +59,8 @@
                                         <label>
                                             <small>Data Início</small>
                                         </label>
-                                        <input type="text" class="form-control" formControlName="dataInicio" mask='00/00/0000' [dropSpecialCharacters]="false">
+                                        <input type="text" class="form-control" formControlName="dataInicio" mask='00/00/0000' [dropSpecialCharacters]="false" [ngClass]="{'is-invalid': displayMessage.dataInicio}">
+                                        <small class="form-text text-red" [innerHTML]="displayMessage.dataInicio"></small>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -60,14 +68,14 @@
                                         <label>
                                             <small>Data Fim</small>
                                         </label>
-                                        <input type="text" class="form-control" formControlName="dataFim" mask='00/00/0000' [dropSpecialCharacters]="false">
+                                        <input type="text" class="form-control" formControlName="dataFim" mask='00/00/0000' [dropSpecialCharacters]="false" [ngClass]="{'is-invalid': displayMessage.dataFim}">
+                                        <small class="form-text text-red" [innerHTML]="displayMessage.dataFim"></small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </span>
-                </ng-template>
-            </div>
+                    </div>
+                </div>
         </form>
     </div>
     <div class="card-footer">
@@ -129,3 +137,12 @@
         </div>
     </div>
 </div>
+<!-- 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('input[type="checkbox"]').click(function(){
+            var inputValue = $(this).attr("value");
+            $("." + inputValue).toggle();
+        });
+    });
+</script> -->
