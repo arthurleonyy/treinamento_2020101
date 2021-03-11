@@ -38,4 +38,13 @@ export class ContaService {
       
     }
 
+    getContas(cpf: string): Observable<any> {
+        return this.apiService.get(`${this.controller}/consultar-contas-cliente/${cpf}`);
+    }
+
+    extratoData(conta: ExtratoDTO): Observable<any> {//?agencia=0002&conta=22334-5&data1=01%2F01%2F2021&data2=10%2F03%2F2021
+        return this.apiService.get(`${this.controller2}/gerar-extrato-data/{ag}/{numCont}/{d1}/{d2}/?agencia=${conta.agencia}&conta=${conta.numeroConta}&data1=${conta.data1}&data2=${conta.data2}`);
+      
+    }
+
 }

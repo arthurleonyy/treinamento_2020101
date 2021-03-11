@@ -45,10 +45,10 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
 		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
 		
-		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de " + dto.getValor() + " para: "
+		extratoService.salvarAcao(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), "Transferencia no valor de R$ " + dto.getValor() + " para: "
 				+ contaDest.getCliente().getNome());
 	
-		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor:  " + dto.getValor() + " de: "
+		extratoService.salvarAcao(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), "Transferencia recebida no valor:  R$ " + dto.getValor() + " de: "
 				+ contaOri.getCliente().getNome());
 		
 		Transferencia = false;
@@ -62,7 +62,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		super.salvar(conta);
 		
 		if(!Transferencia) {
-			extratoService.salvarAcao(conta.getAgencia(), conta.getNumero(), "Deposito no valor de " + valor);
+			extratoService.salvarAcao(conta.getAgencia(), conta.getNumero(), "Deposito no valor de R$ " + valor);
 		}
 		
 	}
@@ -76,7 +76,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		super.salvar(conta);
 		
 		if(!Transferencia) {
-			extratoService.salvarAcao(conta.getAgencia(), conta.getNumero(), "Saque no valor de " + valor);
+			extratoService.salvarAcao(conta.getAgencia(), conta.getNumero(), "Saque no valor de R$ " + valor);
 		}
 	}
 

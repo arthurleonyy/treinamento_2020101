@@ -64,7 +64,7 @@ export class ConsultarSaldoComponent extends FormBase implements OnInit {
     
     this.contaService.consultar(conta).subscribe(response => {
 
-      SweetalertCustom.showAlertConfirm('Operação realizada com sucesso.', {type: 'sucess'}, "ok", `Seu saldo é ${response.body}`).then(
+      SweetalertCustom.showAlertConfirm('Operação realizada com sucesso.', {type: 'sucess'}, "ok", `Seu saldo é R$ ${response.body}`).then(
         result => {
           if (result.dismiss) {
             this.router.navigate(['conta/operacoes']);

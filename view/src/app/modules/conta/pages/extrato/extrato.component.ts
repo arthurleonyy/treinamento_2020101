@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { FormBase } from 'src/app/core/classes/form-base';
 import { ExtratoDTO } from 'src/app/core/dtos/extrato.dto';
 import { ContaService } from 'src/app/core/services/conta.service';
-import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
+import { ValidatorsCustom } from 'src/app/shared/utils/validators-custom';
 
 @Component({
   selector: 'app-extrato',
@@ -13,6 +14,8 @@ import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
 })
 
 export class ExtratoComponent extends FormBase implements OnInit {
+
+  listaExtrato = new Array<ExtratoDTO>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,13 +35,13 @@ export class ExtratoComponent extends FormBase implements OnInit {
     this.form = this.formBuilder.group({
       agencia:      ['', [Validators.required]],
       numeroConta:  ['', [Validators.required]],
-      
-    });
+      data1:      ['', [Validators.required, ValidatorsCustom.validDate]],
+      data2:  ['', [Validators.required,ValidatorsCustom.validDate]],
+    
+    },);
   }
 
-  /**
-   * Seta a mensagem de validação que irá ser exibida ao usuário
-   */
+
   validateMensageError() {
     this.createValidateFieldMessage({
       agencia: {
@@ -46,6 +49,14 @@ export class ExtratoComponent extends FormBase implements OnInit {
       },
       numeroConta: {
         required: 'Número da conta obrigatório.'
+      },
+      data1: {
+        required: 'Data obrigatória.',
+        validDate: 'Data invalida',
+      },
+      data2: {
+        required: 'Data obrigatória.',
+        validDate: 'Data invalida',
       }
     });
   }
@@ -53,28 +64,29 @@ export class ExtratoComponent extends FormBase implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       let conta = new ExtratoDTO(this.form.value);
-    
+
         this.extrato(conta);      
     }
   }
 
   private extrato(conta: ExtratoDTO) {
     
-    this.contaService.extrato(conta).subscribe(response => {
+    this.contaService.extratoData(conta).subscribe(
+      (response) => {
+        this.listaExtrato = response.body.map(item => {
 
-      var ext = JSON.stringify(response);
-      
-
-      SweetalertCustom.showAlertConfirm('Operação realizada com sucesso.', {type: 'sucess'}, "ok", `Extrato: \n ${ext}`).then(
-        result => {
-          if (result.dismiss) {
-            this.router.navigate(['conta/operacoes']);
-          }
-        }
-      );
+          return new ExtratoDTO({
+            agencia: item.agencia,
+            numeroConta: item.conta,
+            acao: item.acao,
+            data: moment(item.data).format('DD/MM/YYYY'),//data recebida do REST esta no formato 2021-02-13T18:07:49.000+00:00, ou seja, é necessário uma formatação
+          })
+        });
+      },
+      (error ) => {
+        this.listaExtrato = new Array<ExtratoDTO>();
       }
     );
   }
-
 
 }
