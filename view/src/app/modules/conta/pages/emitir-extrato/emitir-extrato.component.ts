@@ -115,8 +115,13 @@ export class EmitirExtratoComponent extends FormBase implements OnInit {
           (error) => {
             this.extrato = new Array<ExtratoDTO>();
           }
-        )
+        );
       }
+      document.querySelector("#extrato").scrollIntoView(
+        {
+          behavior: 'smooth'
+        }
+      )
     }
   }
 
